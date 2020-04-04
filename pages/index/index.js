@@ -11,7 +11,6 @@ searchResult.add({
 });
 
 Page({
-
   /**
    * Page initial data
    */
