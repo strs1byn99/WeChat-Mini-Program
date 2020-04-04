@@ -6,7 +6,7 @@ Page({
    */
   data: {
     list: [{
-      "pagePath": "index",
+      "pagePath": "event",
       "text": "活动",
       "iconPath": "/image/test.jpg",
      "selectedIconPath": "/image/test.jpg"
@@ -30,7 +30,7 @@ Page({
     if (e.detail.index == 0) {
       // TODE, should use switchTab to a tabbar page.
       wx.redirectTo({
-        url: "/page/index/index"
+        url: "/pages/event/event"
       })
     } else if (e.detail.index == 2) {
       // TODO
