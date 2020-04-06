@@ -1,9 +1,24 @@
 <!--pages/index/index.wxml-->
-
-<view class="searchbar">
-  <view class="searchbar-box">
-    <icon class="weui-icon-search_in-box" type="search" size="20"></icon>
-    <input class="searchbar-input" placeholder="请输入搜索内容" type="text"/>
+<view class="background">
+  <view class="searchbar">
+    <view class="searchbar-box">
+      <icon class="weui-icon-search_in-box" type="search" size="20"></icon>
+      <input class="searchbar-input" placeholder="请输入搜索内容" type="text" bindtap="onClick" confirm-type="search"  bindinput="bindinput" value="{{inputValue}}" />
+    </view>
+    <view class="button-box" bindtap="confirm"> 搜索 </view>
   </view>
-  <view class="button-box" bindtap=""> 搜索 </view>
+  
+  <!-- use wx:for to build history section -->
+  <view class="history-box">
+    <view class="history">
+      History1
+    </view>
+    <view class="history">
+      History2
+    </view>
+    <view class="history">
+      Waiting for UI ...
+    </view>
+  </view>
+  
 </view>
