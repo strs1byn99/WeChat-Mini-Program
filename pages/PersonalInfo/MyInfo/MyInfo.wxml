@@ -1,0 +1,68 @@
+<!--pages/MyInfo/MyInfo.wxml-->
+
+<view class='container1'>
+  <view class='title'>
+      <button class='connectButton' bindtap="connectCard" >
+      <!-- 暂时不清楚绑定校友卡和账号的区别 -->
+       <text class='buttonText'style="float:left" >绑定校友卡</text>
+       <text class='symbol2'  >></text>
+      </button>
+      <view class="profileImg">
+       <image src="/pages/PersonalInfo/img/profileImg.jpg" role= "image"></image>
+      </view>
+
+       <view class="settingLogo">
+       <image src="/pages/PersonalInfo/img/settingLogo.jpg" role= "image"></image>
+      </view>
+
+    <view class = 'textColumn'>
+        <text class='userName' id="type1">用户名</text>
+        <view class = 'textRow' id="type2">jdoe@ucsc.edu</view>
+    </view>
+    <navigator url="/pages/likedEvents/likedEvents">
+      <view class = 'textColumn2'>
+        <text class='count' id="type3">0</text>
+        <view class = 'navName' id="type4">关注活动</view>
+      </view>
+    </navigator>
+    <navigator url="/pages/JodDevelopment/JodDevelopment">
+      <view class = 'textColumn3'>
+        <text class='count' id="type3">7</text>
+        <view class = 'navName' id="type4">关注职发</view>
+      </view>
+    </navigator>
+    <navigator url="/pages/Purchase/Purchase">
+      <view class = 'textColumn4'>
+        <text class='count' id="type3">3</text>
+        <view class = 'navName' id="type4">关注订购</view>
+      </view>
+    </navigator>
+    <navigator url="/pages/Shared/Shared">
+      <view class = 'textColumn5'>
+        <text class='count' id="type3">0</text>
+        <view class = 'navName' id="type4">我的分享</view>
+      </view>
+    </navigator>
+  </view>
+  <view class='content'>
+    <view class = 'subContent'>
+  <navigator url="/pages/connectAccount/connectAccount">
+  <text class='text' id='connect/disconnect' >绑定账号/解除账号</text>
+    <text class='symbol' >></text>
+  </navigator>
+  <navigator url="/pages/securityCenter/securityCenter">
+  <text class='text' id='securityCenter'>手机账号安全中心</text> 
+     <text class='symbol' >></text>
+  </navigator>
+  <navigator url="/pages/help/help">
+  <text class='text' id='help'>帮助与反馈</text> 
+     <text class='symbol' >></text>
+  </navigator>
+  <navigator url="/pages/conntact/conntact">
+  <text class='text' id='conntact'>联系校友会</text>
+     <text class='symbol' >></text> 
+  </navigator>
+    </view>
+  </view>
+</view>
+<mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
