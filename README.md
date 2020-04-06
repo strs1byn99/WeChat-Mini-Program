@@ -11,4 +11,5 @@
 
 将主文件夹更新到本地文件夹：
   1. 在网页端发起pull request（注意左边是你自己的，右边是caa的）
-  2. 自动merge
+  2. 自动merge到fork的库
+  3. git pull到本地repo
