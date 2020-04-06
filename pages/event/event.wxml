@@ -1,0 +1,34 @@
+<!--pages/event/event.wxml-->
+<view class="container">
+  <view class="header">
+    <text id="page-title">校友会活动</text>
+    <icon id="search" type="search" size="60rpx" color="#000000" ></icon>
+  </view>
+  <view class="navbar">
+    <view class="navbar-row">
+      <view class="navbar-item navbar-selected" id="all-event">
+        <text>全部活动</text>
+      </view>
+      <view class="navbar-item" id="caa-event">
+        <text>校友会活动</text>
+      </view>
+    </view>
+    <view id="navbar-underline"></view>
+  </view>
+  <swiper>
+    <swiper-item>
+      <scroll-view scroll-y="true">
+        <view class="top-event">
+          <text id="top-text">置顶活动</text>
+          <view class="top-card">
+            <text id="top-title">XXXXX 活动</text>
+            <text id="top-member">XXXX 成员</text>
+            <text id="top-description">暑假来了，一起庆祝吧XXXXXXXXXXXXXXXXXXXX</text>
+            <image id="top-image" src="/image/animalcrossing.jpg" mode="aspectFit"></image>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
+<mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>

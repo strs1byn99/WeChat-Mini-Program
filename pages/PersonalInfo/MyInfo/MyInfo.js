@@ -1,4 +1,4 @@
-// pages/service/service.wxml.js
+// pages/MyInfo/MyInfo.js
 Page({
 
   /**
@@ -9,7 +9,7 @@ Page({
       "pagePath": "event",
       "text": "活动",
       "iconPath": "/image/test.jpg",
-     "selectedIconPath": "/image/test.jpg"
+      "selectedIconPath": "/image/test.jpg"
     },
     {
       "pagePath": "service",
@@ -21,21 +21,10 @@ Page({
       "text": "我的",
       "iconPath": "/image/test.jpg",
       "selectedIconPath": "/image/test.jpg"
-    }]  
+    }]
   },
 
-  // tabbar 控制
-  tabChange(e) {
-    console.log('tab change', e.detail)
-    if (e.detail.index == 0) {
-      // TODE, should use switchTab to a tabbar page.
-      wx.redirectTo({
-        url: "/pages/event/event"
-      })
-    } else if (e.detail.index == 2) {
-      // TODO
-    }
-  },
+  
 
   /**
    * 生命周期函数--监听页面加载
@@ -91,5 +80,22 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  /**
+   * tabbar 控制
+   */
+  tabChange(e) {
+    console.log('tab change', e.detail)
+    if (e.detail.index == 1) {
+      // TODO, should use switchTab to a tabbar page.
+      wx.redirectTo({
+        url: "/pages/service/service"
+      })
+    } else if (e.detail.index == 2) {
+      // TODO
+      wx.redirectTo({
+        url: "/pages/PersonalInfo/MyInfo/MyInfo"
+      })
+    }
+  },
 })

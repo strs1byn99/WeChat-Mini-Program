@@ -1,40 +1,11 @@
-// pages/service/service.wxml.js
+// pages/conntact/contact.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [{
-      "pagePath": "event",
-      "text": "活动",
-      "iconPath": "/image/test.jpg",
-     "selectedIconPath": "/image/test.jpg"
-    },
-    {
-      "pagePath": "service",
-      "text": "服务",
-      "iconPath": "/image/test.jpg",
-      "selectedIconPath": "/image/test.jpg"
-    },
-    {
-      "text": "我的",
-      "iconPath": "/image/test.jpg",
-      "selectedIconPath": "/image/test.jpg"
-    }]  
-  },
 
-  // tabbar 控制
-  tabChange(e) {
-    console.log('tab change', e.detail)
-    if (e.detail.index == 0) {
-      // TODE, should use switchTab to a tabbar page.
-      wx.redirectTo({
-        url: "/pages/event/event"
-      })
-    } else if (e.detail.index == 2) {
-      // TODO
-    }
   },
 
   /**

@@ -1,4 +1,4 @@
-// page/service/service.js
+// pages/help/page.js
 Page({
 
   /**
