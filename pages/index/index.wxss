@@ -1,67 +1,21 @@
-/* pages/index/index.wxss */
-.background {
-  width: 100%;
-  height: 100%;
-  background-color: gray;
-}
-
-.searchbar {
-  width: 95%;
-  display: inline;
-  display: -webkit-box;
-  display: -ms-flexbox;
+/**index.wxss**/
+.userinfo {
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.searchbar-box {
-  width: 80%;
-  position: relative;
-  -webkit-box-flex: 1;
-  -webkit-flex: auto;
-  flex: auto;
-  border-radius: 5px;
-  background: #fff;
-  border: 5rpx solid #e6e6ea;
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
   margin: 20rpx;
-  height: 50rpx;
+  border-radius: 50%;
 }
 
-.weui-icon-search_in-box {
-  position: absolute; 
-  margin-left: -10rpx;
+.userinfo-nickname {
+  color: #aaa;
 }
 
-.searchbar-input {
-  font-size: 14px;
-  margin-left: 50rpx !important;
-}
-
-.button-box {
-  position: relative;
-  display: inline-flex;
-  padding-top: 14rpx;
-  font-size: 18px;
-}
-
-.history-box {
-  position: absolute;
-  width: 70%;
-  margin: 10%;
-}
-
-.history {
-  position: relative;
-  width: 100%;
-  padding: 0 10rpx;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  border-top: gray;
-  border-top: 1px solid;
+.usermotto {
+  margin-top: 200px;
 }

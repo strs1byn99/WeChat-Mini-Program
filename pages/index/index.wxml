@@ -1,24 +1,16 @@
-<!--pages/index/index.wxml-->
-<view class="background">
-  <view class="searchbar">
-    <view class="searchbar-box">
-      <icon class="weui-icon-search_in-box" type="search" size="20"></icon>
-      <input class="searchbar-input" placeholder="请输入搜索内容" type="text" bindtap="onClick" confirm-type="search"  bindinput="bindinput" value="{{inputValue}}" />
-    </view>
-    <view class="button-box" bindtap="confirm"> 搜索 </view>
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
   </view>
-  
-  <!-- use wx:for to build history section -->
-  <view class="history-box">
-    <view class="history">
-      History1
-    </view>
-    <view class="history">
-      History2
-    </view>
-    <view class="history">
-      Waiting for UI ...
-    </view>
-  </view>
-  
+  <input placeholder="姓名" bindinput="addName"></input>
+  <input placeholder="年龄" bindinput="addAge" type="number"></input>
+  <button bindtap="addData" type="primary">新增数据</button>
+  <button bindtap="getData">查询数据</button>
+
+  <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
 </view>

@@ -1,124 +1,127 @@
-// pages/index/index.js
-
-const db = wx.cloud.database();
-const searchResult = db.collection("searchResult");
-// searchResult.add({
-//   data: {
-//     "title": "AAAA"
-//   }
-// }); 
+//index.js
+//获取应用实例
+const app = getApp()
+const DB = wx.cloud.database()
+const USER = DB.collection("user")
 
 Page({
-  /**
-   * Page initial data
-   */
   data: {
-    Source: ["weixin", "wechat", "android", "Android", "IOS", "java", "javascript", "微信小程序", "微信公众号", "微信开发者工具"],
-    bindSource: [],
-    history: []
+    motto: 'Hello World',
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    name: '',
+    age: 0,
+    list: [{
+      "pagePath": "index",
+      "text": "活动",
+      "iconPath": "/image/test.jpg",
+     "selectedIconPath": "/image/test.jpg"
+    },
+    {
+      "pagePath": "service",
+      "text": "服务",
+      "iconPath": "/image/test.jpg",
+      "selectedIconPath": "/image/test.jpg"
+    },
+    {
+      "text": "我的",
+      "iconPath": "/image/test.jpg",
+      "selectedIconPath": "/image/test.jpg"
+    }]
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function (options) {
-    this.showHistory(); // Get 5 search histories
-    this.getArticles(); // Get all article names
+  //新增数据
+  addData: function() {
+    USER.add({
+      data: {
+        name: this.data.name,
+        age: this.data.age
+      },
+      success: function(res) {
+        console.log("success", res)
+      },
+      fail: function(res) {
+        console.log("fail", res)
+      }
+    })
   },
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
+  addName: function(e) {
+    this.data.name = e.detail.value
+  },
+  addAge: function(e) {
+    this.data.age = e.detail.value
   },
 
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
+  //查询数据
+  getData: function() {
+    USER.where({
+      age: DB.command.lt(11)
+      // name: "李四"
+    }).get({
+      success: function(res) {
+        console.log("success", res)
+      },
+      fail: function(res) {
+        console.log("fail", res)
+      }
+    })
   },
 
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
-  },
-
-  getSearchResult: function () {
-    
-  },
-
-  getArticles: function () {
-    searchResult.get().then(res => {
-      var data = res.data;
-      // setData to Source
-    });
-  },
-
-  showHistory: function () { // OnLoad function
-    searchResult.count().then(res => {
-      // console.log(res.total);
-      searchResult.skip(res.total-5).limit(5).get().then(res => {
-        console.log(res.data);
-        // assign to pagedata
-      });
-    });
-  },
-
-  bindinput: function (e) {
-    var prefix = e.detail.value;  // real time input
-    var sources = []              // automated sources 
-    console.log(prefix);
-    if (prefix != "") {
-      // loop over all sources in Sources (later will update Sources with real data in DB)
-      this.data.Source.forEach(function (x) {
-        if (x.indexOf(prefix) != -1) {
-          console.log(x);
-          sources.push(x);
-        }
-      });
+  // tabbar 控制
+  tabChange(e) {
+    console.log('tab change', e.detail)
+    if (e.detail.index == 1) {
+      // TODE, should use switchTab to a tabbar page.
+      wx.redirectTo({
+        url: "/page/service/service"
+      })
+    } else if (e.detail.index == 2) {
+      // TODO
     }
-    if (sources.length != 0) {
-      this.setData({
-        bindSource: sources
-      });
-      console.log(this.data.bindSource);
-    } 
   },
 
-  bindconfirm(event){
-    console.log("hello");
-    console.log(event.detail.value);
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+  onLoad: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse){
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
+    }
+  },
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
   }
 })
