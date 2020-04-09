@@ -20,14 +20,14 @@ This project is managed by
 
 |                         |                            |
 |-------------------------|----------------------------|
-|    *IT Manager*         | Hang Yuan (hyuan3@ucsc.edu)|
-|    *Project Manager*    | Wenjie Peng                |
-|    *Tech Lead/Support*  | Yujia Li (yli302@ucsc.edu) | 
-|    *Developer*          | Tianhao Guo                |
+| ***IT Manager***        | Hang Yuan (hyuan3@ucsc.edu)|
+| ***Project Manager***   | Wenjie Peng                |
+| ***Tech Lead/Support*** | Yujia Li (yli302@ucsc.edu) | 
+| ***Developer***         | Tianhao Guo                |
 |                         | Perry Yang                 |
 |                         | Haopeng Zeng               |
 |                         | Dun(Jack) Liu              |
-|    *UI Designer*        | Amber Pan                  |
+| ***UI Designer***       | Amber Pan                  |
 |                         | Sherry Fang                |
 
 ## Acknowledgement
