@@ -5,7 +5,7 @@ This project is managed by
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;Chinese Alumni Association
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;University of California, Santa Cruz
 
-<br/><br/>The UCSC-CAA(UC Santa Cruz - Chinese Alumni Association) owns its all copyrights.
+<br/>The UCSC-CAA(UC Santa Cruz - Chinese Alumni Association) owns its all copyrights.
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;caa@ucsc.edu
 <br/>©2020 UC Santa Cruz - CAA. All Rights Reserved.
 
