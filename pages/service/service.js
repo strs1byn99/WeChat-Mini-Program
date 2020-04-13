@@ -29,8 +29,8 @@ Page({
     console.log('tab change', e.detail)
     if (e.detail.index == 0) {
       // TODE, should use switchTab to a tabbar page.
-      wx.redirectTo({
-        url: "/pages/event/event"
+      wx.switchTab({
+        url: '/pages/event/event'
       })
     } else if (e.detail.index == 2) {
       // TODO

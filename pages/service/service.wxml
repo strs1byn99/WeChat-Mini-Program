@@ -1,4 +1,114 @@
-<!--pages/service/service.wxml.wxml-->
-<text>pages/service/service.wxml.wxml</text>
+<!--pages/service/service.wxml-->
+<view class="container">
+  <view class="header">
+    <text id="page-title">校友会服务</text>
+    <icon id="search" type="search" size="60rpx" color="#000000" ></icon>
+  </view>
+  <view class="navbar">
+    <view class="navbar-row">
+      <view class="navbar-item navbar-selected" id="campus-order">
+        <text>校园订购</text>
+      </view>
+      <view class="navbar-item" id="career-dev">
+        <text>职发求职</text>
+      </view>
+      <view class="navbar-item" id="alumni-welfare">
+        <text>校友福利</text>
+      </view>
+    </view>
+    <view id="navbar-underline"></view>
+  </view>
+  <swiper class="outer-swiper">
+    <swiper-item class="swiper-page">
+      <scroll-view scroll-y="true">
+        <swiper class="slideshow" indicator-dots="true" autoplay="true" interval="5000" duration="500">
+          <swiper-item class="slideshow-item">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+          </swiper-item>
+          <swiper-item class="slideshow-item">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+          </swiper-item>
+        </swiper>
+        <view class="list">
+          <view class="div-line"></view>
+          <view class="list-el">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+            <view class="list-el-text">
+              <text class="item-title">校友会徽章</text>
+              <text class="item-description">2020年校友限定版</text>
+              <text class="item-price">¥27</text>
+            </view>
+          </view>
+          <view class="div-line"></view>
+          <view class="list-el">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+            <view class="list-el-text">
+              <text class="item-title">校友会徽章</text>
+              <text class="item-description">2020年校友限定版</text>
+              <text class="item-price">¥27</text>
+            </view>
+          </view>
+          <view class="div-line"></view>
+          <view class="list-el">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+            <view class="list-el-text">
+              <text class="item-title">校友会徽章</text>
+              <text class="item-description">2020年校友限定版</text>
+              <text class="item-price">¥27</text>
+            </view>
+          </view>
+        </view>
 
+      </scroll-view>
+    </swiper-item>
+    <swiper-item class="swiper-page">
+      <scroll-view scroll-y="true">
+        <swiper class="slideshow" indicator-dots="true" autoplay="true" interval="5000" duration="500">
+          <swiper-item class="slideshow-item">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+          </swiper-item>
+          <swiper-item class="slideshow-item">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+          </swiper-item>
+        </swiper>
+        <view class="list">
+          <view class="div-line"></view>
+          <view class="list-el">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+            <view class="list-el-text">
+              <text class="item-title">校友会徽章</text>
+              <text class="item-description">2020年校友限定版</text>
+              <text class="item-price">¥27</text>
+            </view>
+          </view>
+        </view>
+
+      </scroll-view>
+    </swiper-item>
+    <swiper-item class="swiper-page">
+      <scroll-view scroll-y="true">
+        <swiper class="slideshow" indicator-dots="true" autoplay="true" interval="5000" duration="500">
+          <swiper-item class="slideshow-item">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+          </swiper-item>
+          <swiper-item class="slideshow-item">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+          </swiper-item>
+        </swiper>
+        <view class="list">
+          <view class="div-line"></view>
+          <view class="list-el">
+            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+            <view class="list-el-text">
+              <text class="item-title">校友会徽章</text>
+              <text class="item-description">2020年校友限定版</text>
+              <text class="item-price">¥27</text>
+            </view>
+          </view>
+        </view>
+
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>
 <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
