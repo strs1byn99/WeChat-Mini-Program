@@ -1,5 +1,6 @@
 const db = wx.cloud.database();
 const searchResult = db.collection("searchResult");
+const topEvent = db.collection("top_event");
 // searchResult.add({
 //   data: {
 //     "title": "AAAA"
@@ -11,9 +12,11 @@ Page({
    * Page initial data
    */
   data: {
-    Source: ["weixin", "wechat", "android", "Android", "IOS", "java", "javascript", "微信小程序", "微信公众号", "微信开发者工具"],
+    Source: ["weixin", "wechat", "android", "Android", "IOS", "java", "javascript", "微信小程序", "微信公众号", "微信开发者工具"], 
     bindSource: [],
-    history: []
+    history: [],
+    inputValue: '',
+    hotList:[]
   },
 
   /**
@@ -21,7 +24,8 @@ Page({
    */
   onLoad: function (options) {
     this.showHistory(); // Get 5 search histories
-    this.getArticles(); // Get all article names
+    this.getHotList(); // Get hot articles
+    this.getArticles(); // Get all articles
   },
 
   /**
@@ -77,10 +81,25 @@ Page({
     
   },
 
+  getHotList: function () {
+      topEvent.limit(5).get().then(res => {  // 应取所有数据中的点击率最高的文章 limit()
+      this.setData({
+        hotList: res.data
+      });
+      console.log(this.data.hotList);
+    });
+  },
+
   getArticles: function () {
-    searchResult.get().then(res => {
-      var data = res.data;
-      // setData to Source
+    topEvent.get().then(res => {  // 获取所有文章
+      var new_sources = this.data.Source;
+      res.data.forEach(function (x) {
+        new_sources.push(x.description)
+      });
+      this.setData({
+        Source: new_sources
+      });
+      console.log(this.data.Source);
     });
   },
 
@@ -89,7 +108,9 @@ Page({
       // console.log(res.total);
       searchResult.skip(res.total-5).limit(5).get().then(res => {
         console.log(res.data);
-        // assign to pagedata
+        this.setData({
+          history: res.data
+        });
       });
     });
   },
@@ -98,6 +119,9 @@ Page({
     var prefix = e.detail.value;  // real time input
     var sources = []              // automated sources 
     console.log(prefix);
+    this.setData({
+      inputValue: e.detail.value
+    });
     if (prefix != "") {
       // loop over all sources in Sources (later will update Sources with real data in DB)
       this.data.Source.forEach(function (x) {
@@ -115,8 +139,31 @@ Page({
     } 
   },
 
-  bindconfirm(event){
-    console.log("hello");
-    console.log(event.detail.value);
+  cancel: function() {
+    this.setData({
+      inputValue: ''  // clear inputValue
+    });
+  },
+
+  confirm: function (e) {
+    console.log(e.detail.value);  // 搜索词条
+    var sources = []              // automated sources 
+    console.log(prefix);
+    this.setData({
+      inputValue: e.detail.value
+    });
+    searchResult.add({            // 加入搜索历史
+      data: {
+        "title": this.data.inputValue
+      }
+    });
+    var prefix = this.data.inputValue;
+    if (prefix != "") {
+      // 搜索算法
+    }
+  },
+
+  gotoResult: function () {
+    // go to specific page
   }
 })
