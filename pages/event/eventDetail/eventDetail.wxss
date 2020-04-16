@@ -1,0 +1,155 @@
+/* pages/eventDetail/eventDetail.wxss */
+.container{
+  display: block;
+  width: 100%;
+  height: 1100rpx;
+}
+.title{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  margin: 30rpx 20rpx 30rpx 20rpx;
+  top: -200rpx;
+  height:130rpx;
+  border-bottom: 1rpx rgb(220, 219, 219) solid;
+}
+.title .caseTitle{
+  font-size: 33rpx;
+  font-weight: 600;
+  margin-top: 10rpx;
+  padding-left: 135rpx;
+}
+
+.subTitle{
+  display: flex;
+  flex-direction: column;
+}
+
+.subTitle text{
+  font-size: 28rpx;
+  padding-left: 135rpx;
+  color: grey;
+}
+
+.iconImage{
+  position: absolute;
+}
+
+.iconImage image{
+  height: 115rpx;
+  width: 115rpx;
+}
+
+.saved{
+  width: 150rpx;
+  height: 100rpx;
+  margin-left: 550rpx;
+  margin-top: -100rpx;
+  border-left: 1rpx rgb(220, 219, 219) solid;
+}
+
+.saved image{
+  padding-left: 40rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.descriptions-image{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height:420rpx;
+  top: -210rpx;
+  margin: 30rpx 20rpx 30rpx 20rpx;
+  border-bottom: 1rpx rgb(220, 219, 219) solid;
+}
+
+.descriptions-image text{
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.descriptions-image image{
+  width: 100%;
+  height: 350rpx;
+  margin-top: 10rpx;
+  
+}
+
+.description-Text{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height:140rpx;
+  top: -240rpx;
+  margin: 30rpx 20rpx 30rpx 20rpx;
+  border-bottom: 1rpx rgb(220, 219, 219) solid;
+}
+
+.description-Text text{
+  font-size: 30rpx;
+}
+
+.time{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  height:80rpx;
+  top: -240rpx;
+  margin: 30rpx 20rpx 30rpx 20rpx;
+  border-bottom: 1rpx rgb(220, 219, 219) solid;
+}
+.time text{
+  font-size: 30rpx;
+}
+.time image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.address{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  height:80rpx;
+  top: -240rpx;
+  margin: 30rpx 20rpx 30rpx 20rpx;
+  border-bottom: 1rpx rgb(220, 219, 219) solid;
+}
+
+.address text{
+  font-size: 30rpx;
+}
+
+.phone{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  height:80rpx;
+  top: -240rpx;
+  margin: 30rpx 20rpx 30rpx 20rpx;
+  border-bottom: 1rpx rgb(220, 219, 219) solid;
+}
+
+.phone text{
+  font-size: 30rpx;
+}
+
+.tag{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  height:80rpx;
+  top: -230rpx;
+  margin: 30rpx 20rpx 30rpx 20rpx;
+}
+
+.tag text{
+  font-size: 30rpx;
+}

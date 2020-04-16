@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "navigationBarBackgroundColor": "#0000CD",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "附近店铺",
+  "enablePullDownRefresh": false
+}

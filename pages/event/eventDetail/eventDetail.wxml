@@ -1,0 +1,41 @@
+<view class="container">
+  <view class="title">
+    <text class="caseTitle">校园会聚餐</text>
+    <view class="subTitle">
+      <text>70元以下 综合</text>
+    </view>
+    <view class="iconImage">
+      <image src="/image/test.jpg"></image>
+    </view>
+    <view class="saved">
+      <image src="/image/test.jpg"></image>
+    </view>
+  </view>
+  <view class="descriptions-image">
+    <text>活动详情</text>  
+    <view class='des-img'>
+      <image src="/image/animalcrossing.jpg"></image>
+    </view>
+  </view>
+  <view class="description-Text">
+    <text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</text>
+    <text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</text>
+    <text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</text>
+  </view>
+  <view class="time"> 
+    <text>活动时间</text>
+    <text>12:00-22:00</text>
+  </view>
+  <view class="address"> 
+    <text>活动地址</text>
+    <text>xxxxxxxxxxxxxxxxx</text>
+  </view>
+  <view class="phone"> 
+    <text>联系人电话</text>
+    <text>xxxxxxxxxxxxxxx</text>
+  </view>
+  <view class="tag">
+    <text>活动标签</text>
+  </view>
+</view>
+ 

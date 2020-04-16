@@ -17,18 +17,94 @@
   </view>
   <swiper>
     <swiper-item>
-      <scroll-view scroll-y="true">
-        <view class="top-event">
+      <scroll-view scroll-y="true" style="width:100%; height:930rpx;">
+        <view class="topEvent" bindtap="jumpDetail">
           <text id="top-text">置顶活动</text>
           <view class="top-card">
-            <text id="top-title">XXXXX 活动</text>
-            <text id="top-member">XXXX 成员</text>
-            <text id="top-description">暑假来了，一起庆祝吧XXXXXXXXXXXXXXXXXXXX</text>
+            <text id="top-title">{{topEvent[0].title}}</text>
+            <text id="top-member">{{topEvent[0].member}}</text>
+            <text id="top-description">{{topEvent[0].description}}</text>
             <image id="top-image" src="/image/animalcrossing.jpg" mode="aspectFit"></image>
+          </view>
+        </view >
+        
+        <view class="caseList" wx:for='{{caseList}}'>
+          <view class="caseHeader">
+            <text class="case-title">{{item.header}}</text>
+            <view class="case-subHeader">
+              <text class="textColor">{{item.subHeader}}</text>
+            </view>
+          </view>
+          <view class="IconImage">
+            <image src='/image/13.jpg'></image>
+          </view>
+          <view class="case-descriptions" bindtap="jumpDetail">
+            <text class="descriptionText">{{item.descriptionText1}}</text>
+            <text class="descriptionText">{{item.descriptionText2}}</text>
+          </view>
+          <view class="shareCommentLike">
+            <view class="share">
+              <image src="/image/share.jpg"></image> 
+              <text class="shareText">分享</text>
+            </view>
+            <view class="comment">
+              <image src="/image/comment.png"></image> 
+              <text>{{item.commentNum}}</text>
+            </view>
+            <view class="like">
+              <image src="/image/like.png" bindtap="increaseLike" data-index='{{index}}'></image> 
+              <text>{{item.likeNum}}</text>
+            </view>
           </view>
         </view>
       </scroll-view>
     </swiper-item>
+
+    <swiper-item>
+      <scroll-view scroll-y="true" style="width:100%; height:930rpx;">
+        <view class="topEvent" bindtap="jumpDetail">
+          <text id="top-text">置顶活动</text>
+          <view class="top-card">
+            <text id="top-title">{{topEvent[1].title}}</text>
+            <text id="top-member">{{topEvent[1].member}}</text>
+            <text id="top-description">{{topEvent[1].description}}</text>
+            <image id="top-image" src="/image/animalcrossing.jpg" mode="aspectFit"></image>
+          </view>
+        </view >
+        
+        <view class="caseList" wx:for='{{caseList}}'>
+          <view class="caseHeader">
+            <text class="case-title">{{item.header}}</text>
+            <view class="case-subHeader">
+              <text class="textColor">{{item.subHeader}}</text>
+            </view>
+          </view>
+          <view class="IconImage">
+            <image src='/image/13.jpg'></image>
+          </view>
+          <view class="case-descriptions" bindtap="jumpDetail">
+            <text class="descriptionText">{{item.descriptionText1}}</text>
+            <text class="descriptionText">{{item.descriptionText2}}</text>
+          </view>
+          <view class="shareCommentLike">
+            <view class="share">
+              <image src="/image/share.jpg"></image> 
+              <text class="shareText">分享</text>
+            </view>
+            <view class="comment">
+              <image src="/image/comment.png" bindtap="increaseComment"></image> 
+              <text>{{item.commentNum}}</text>
+            </view>
+            <view class="like">
+              <image src="/image/like.png"></image> 
+              <text>{{item.likeNum}}</text>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+    
+    
   </swiper>
 </view>
 <mp-tabbar style="position:fixed;bottom:0;width:100%;left:0;right:0;" list="{{list}}" bindchange="tabChange"></mp-tabbar>
