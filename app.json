@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/event/event",
+    "pages/search/search",
     "pages/index/index",
+    "pages/event/event",
     "pages/logs/logs",
     "pages/service/service"
   ],
