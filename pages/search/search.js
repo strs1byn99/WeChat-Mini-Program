@@ -171,7 +171,7 @@ Page({
     console.log(prefix);
     this.setData({
       inputValue: e.detail.value,
-      //bindSource: []
+      bindSource: []
     });
     // searchResult.add({            // 加入搜索历史
     //   data: {
