@@ -18,13 +18,15 @@
 .title .caseTitle{
   font-size: 33rpx;
   font-weight: 600;
-  margin-top: 10rpx;
+  margin-top: 5rpx;
   padding-left: 135rpx;
 }
 
 .subTitle{
   display: flex;
   flex-direction: column;
+  position: absolute;
+  margin-top: 60rpx;
 }
 
 .subTitle text{
@@ -35,6 +37,7 @@
 
 .iconImage{
   position: absolute;
+  margin-top: -3rpx;
 }
 
 .iconImage image{
@@ -45,15 +48,33 @@
 .saved{
   width: 150rpx;
   height: 100rpx;
+  position: absolute;
   margin-left: 550rpx;
-  margin-top: -100rpx;
+  margin-top: 0rpx;
   border-left: 1rpx rgb(220, 219, 219) solid;
 }
 
 .saved image{
-  padding-left: 40rpx;
-  width: 100rpx;
-  height: 100rpx;
+  margin-left: 60rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.saved text{
+  font-size: 35rpx;
+  color: grey;
+}
+.saved button:not([size='mini']){
+  width: 100%;
+  height: 120rpx;
+  margin-left: 15rpx;
+  margin-top: -70rpx;
+  border: none;
+} 
+
+.textShare{
+  position: absolute;
+  margin-left: 50rpx;
+  margin-top: -8rpx;
 }
 
 .descriptions-image{
@@ -67,22 +88,38 @@
 }
 
 .descriptions-image text{
-  font-size: 30rpx;
-  font-weight: 600;
+  font-size: 35rpx;
+  /* font-weight: 600; */
 }
 
 .descriptions-image image{
   width: 100%;
   height: 350rpx;
   margin-top: 10rpx;
-  
 }
+
+#des_img{
+  position: relative;
+  margin-top: 60rpx;
+}
+
+.infoText{
+  position: absolute;
+}
+
+.description_Text{
+  margin-top: 20rpx;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
 
 .description-Text{
   display: flex;
   flex-direction: column;
   position: relative;
-  height:140rpx;
+  height:150rpx;
   top: -240rpx;
   margin: 30rpx 20rpx 30rpx 20rpx;
   border-bottom: 1rpx rgb(220, 219, 219) solid;
@@ -142,7 +179,7 @@
 
 .tag{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   position: relative;
   height:80rpx;
@@ -152,4 +189,50 @@
 
 .tag text{
   font-size: 30rpx;
+}
+.tag1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  height: 100rpx;
+  width: 100%;
+  margin-top: 60rpx;
+  
+}
+
+.tag1 text{
+  color: grey;
+}
+.text1{
+  /* margin-left: 20rpx;
+  margin-top: 5rpx;
+  position: absolute; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag2{
+  border: 1rpx rgb(220, 219, 219) solid;
+  height: 60rpx;
+  width: 150rpx;
+}
+
+.tag3{
+  border: 1rpx rgb(220, 219, 219) solid;
+  height: 60rpx;
+  width: 150rpx;
+}
+
+.tag4{
+  border: 1rpx rgb(220, 219, 219) solid;
+  height: 60rpx;
+  width: 150rpx;
+}
+
+.tag5{
+  border: 1rpx rgb(220, 219, 219) solid;
+  height: 60rpx;
+  width: 150rpx;
 }

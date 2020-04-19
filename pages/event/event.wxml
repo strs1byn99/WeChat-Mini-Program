@@ -2,7 +2,8 @@
 <view class="container">
   <view class="header">
     <text id="page-title">校友会活动</text>
-    <icon id="search" type="search" size="60rpx" color="#000000" ></icon>
+    <image class="searchImage" src="/image/search.png"></image>
+    <!-- <icon id="search" type="search" size="60rpx" color="#000000" ></icon> -->
   </view>
   <view class="navbar">
     <view class="navbar-row">
@@ -24,6 +25,7 @@
             <text id="top-title">{{topEvent[0].title}}</text>
             <text id="top-member">{{topEvent[0].member}}</text>
             <text id="top-description">{{topEvent[0].description}}</text>
+            <text id="top-description1">{{topEvent[0].description1}}</text>
             <image id="top-image" src="/image/animalcrossing.jpg" mode="aspectFit"></image>
           </view>
         </view >
@@ -42,7 +44,7 @@
             <text class="descriptionText">{{item.descriptionText1}}</text>
             <text class="descriptionText">{{item.descriptionText2}}</text>
           </view>
-          <view class="shareCommentLike">
+          <!-- <view class="shareCommentLike">
             <view class="share">
               <image src="/image/share.jpg"></image> 
               <text class="shareText">分享</text>
@@ -55,7 +57,7 @@
               <image src="/image/like.png" bindtap="increaseLike" data-index='{{index}}'></image> 
               <text>{{item.likeNum}}</text>
             </view>
-          </view>
+          </view> -->
         </view>
       </scroll-view>
     </swiper-item>
@@ -67,7 +69,8 @@
           <view class="top-card">
             <text id="top-title">{{topEvent[1].title}}</text>
             <text id="top-member">{{topEvent[1].member}}</text>
-            <text id="top-description">{{topEvent[1].description}}</text>
+            <text id="top-description">{{topEvent[0].description}}</text>
+            <text id="top-description1">{{topEvent[0].description1}}</text>
             <image id="top-image" src="/image/animalcrossing.jpg" mode="aspectFit"></image>
           </view>
         </view >
@@ -86,7 +89,7 @@
             <text class="descriptionText">{{item.descriptionText1}}</text>
             <text class="descriptionText">{{item.descriptionText2}}</text>
           </view>
-          <view class="shareCommentLike">
+          <!-- <view class="shareCommentLike">
             <view class="share">
               <image src="/image/share.jpg"></image> 
               <text class="shareText">分享</text>
@@ -99,7 +102,7 @@
               <image src="/image/like.png"></image> 
               <text>{{item.likeNum}}</text>
             </view>
-          </view>
+          </view> -->
         </view>
       </scroll-view>
     </swiper-item>
