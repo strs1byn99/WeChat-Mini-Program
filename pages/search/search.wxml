@@ -1,5 +1,5 @@
 <!--pages/search/search.wxml-->
-
+<!-- search bar -->
 <view class="background">
   <view class="searchbar">
     <view class="searchbar-box">
@@ -8,15 +8,25 @@
     </view>
     <view class="button-box" bindtap="cancel"> 取消 </view>
   </view>
+
+  <!-- 联想词条 -->
+  <scroll-view scroll-y="true" class="scrollview" hidden="{{hideScroll}}" style="{{arrayHeight>340?'height:340rpx':''}}">
+    <view wx:for="{{bindSource}}" >
+      <view id="{{item}}" class="binditem" bindtap="itemtap">
+        <image src="../../image/search.png" class="icon"></image>
+        {{item}}
+      </view>
+    </view>
+  </scroll-view>
   
-  <!-- use wx:for to build history section -->
+  <!-- use wx:for to build hotlist section -->
   <view class="hit-area">
     <view class="hit-title"> 热门搜索 </view>  
     <view class="hit-item-area-box">
       <view class="hit-item-area" wx:for="{{hotList}}">
         <view class="hit-item" bindtap="gotoResult">
           {{item.description}}
-        </view>
+        </view> 
       </view>    
     </view>
   </view>
