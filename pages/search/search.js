@@ -7,16 +7,17 @@ const topEvent = db.collection("top_event");
 //   }
 // }); 
 
+var arrayHeight = 0;
 Page({
   /**
    * Page initial data
    */
   data: {
-    Source: ["weixin", "wechat", "android", "Android", "IOS", "java", "javascript", "微信小程序", "微信公众号", "微信开发者工具"], 
-    bindSource: [],
-    history: [],
-    inputValue: '',
-    hotList:[]
+    Source: ["weixin", "wechat", "android", "Android", "IOS", "java", "javascript", "微信小程序", "微信公众号", "微信开发者工具"],  // 所有词条
+    bindSource: [], // 绑定到页面的数据，根据用户输入动态变化
+    history: [],  // 历史记录，暂不投入使用
+    inputValue: '', // 文本框数据
+    hotList:[]  // 热门搜索
   },
 
   /**
@@ -116,8 +117,8 @@ Page({
   },
 
   bindinput: function (e) {
-    var prefix = e.detail.value;  // real time input
-    var sources = []              // automated sources 
+    var prefix = e.detail.value;  // 实时输入
+    var sources = []              // 匹配结果
     console.log(prefix);
     this.setData({
       inputValue: e.detail.value
@@ -125,7 +126,8 @@ Page({
     if (prefix != "") {
       // loop over all sources in Sources (later will update Sources with real data in DB)
       this.data.Source.forEach(function (x) {
-        if (x.indexOf(prefix) != -1) {
+        var xlow = x.toLowerCase();
+        if (xlow.indexOf(prefix.toLowerCase()) != -1) {
           console.log(x);
           sources.push(x);
         }
@@ -133,15 +135,33 @@ Page({
     }
     if (sources.length != 0) {
       this.setData({
-        bindSource: sources
+        hideScroll: false,
+        bindSource: sources,
+        arrayHeight: sources.length*18
       });
       console.log(this.data.bindSource);
-    } 
+    } else {
+      this.setData({
+        hideScroll: true,
+        bindSource: []
+      });
+    }
+  },
+
+  itemtap: function (e) {
+    console.log(e);
+    this.setData({
+      inputValue: e.target.id,
+      hideScroll: true,
+      bindSource: []
+    });
+    // go to specific page
   },
 
   cancel: function() {
     this.setData({
-      inputValue: ''  // clear inputValue
+      inputValue: '',  // clear inputValue
+      bindSource: []
     });
   },
 
@@ -150,20 +170,22 @@ Page({
     var sources = []              // automated sources 
     console.log(prefix);
     this.setData({
-      inputValue: e.detail.value
+      inputValue: e.detail.value,
+      bindSource: []
     });
-    searchResult.add({            // 加入搜索历史
-      data: {
-        "title": this.data.inputValue
-      }
-    });
+    // searchResult.add({            // 加入搜索历史
+    //   data: {
+    //     "title": this.data.inputValue
+    //   }
+    // });
     var prefix = this.data.inputValue;
     if (prefix != "") {
       // 搜索算法
     }
   },
 
-  gotoResult: function () {
+  gotoResult: function (e) {
     // go to specific page
+    console.log(this.data.inputValue);
   }
 })
