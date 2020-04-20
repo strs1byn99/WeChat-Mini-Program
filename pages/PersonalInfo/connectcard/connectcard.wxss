@@ -1,0 +1,117 @@
+/* pages/personalinfo/connectcard/connectcard.wxss */
+.container2 {
+   width: 100%;
+   height: 1500rpx;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center; 
+   border: 4rpx solid rgb(206, 205, 205);
+   background-color: rgb(241, 241, 241);
+}
+.container-top{
+   width: 100%;
+   height: 200rpx;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10rpx 10rpx;
+  background-color: rgba(241, 241, 241, 0.986);
+}
+.title{
+  font-size: 40rpx; 
+  font-weight: 500;
+  padding-top: 70rpx;
+  padding-left: 30rpx;
+}
+.input{
+  width: 650rpx;
+  height: 100rpx;
+  display: felx;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* position: relative; */
+  border-radius: 100rpx;
+  background-color: rgb(255, 255, 255);
+  color: white;
+  line-height: 100rpx;
+  text-align: left;
+  margin: 20rpx;
+ 
+}
+.inputContent{
+    width: 100%;
+    height: 450rpx;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; 
+    padding-top: 90rpx;
+}
+.placeholder{
+  color:rgb(185, 184, 184);
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.verifyCode{
+  position: relative;
+  width: 670rpx;
+  height:120rpx;
+  display:felx;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  margin-top: 5rpx;
+  margin-right: 20rpx;
+}
+.verifyCode image{
+  background-color: #fff;
+  width: 42rpx;
+  height: 42rpx;
+  position: absolute;
+  margin-left: 600rpx;
+  margin-top: 50rpx;
+}
+.container-bottom{
+  width: 100%;
+  height: 600rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; 
+  padding-top: 30rpx;
+}
+.signUp{
+  margin: 40rpx 50rpx;
+  background-color:  #1a1af5;
+  border-radius: 100rpx;
+  padding-top: 30rpx;
+}
+#signUpText{
+  color: #fff;
+  font-weight: 500;
+  font-size: 35rpx;
+  /* margin-top:30rpx; */
+}
+
+checkbox .wx-checkbox-input{
+  background-color:  #1a1af5;
+  width: 35rpx;
+  height: 35rpx;
+}
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-size:30rpx;
+  color: #fff;
+}
+.checkbox text{
+ font-size: 28rpx;
+ color:rgb(194, 196, 199);
+}
