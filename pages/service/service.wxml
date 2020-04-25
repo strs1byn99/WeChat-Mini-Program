@@ -30,35 +30,18 @@
           </swiper-item>
         </swiper>
         <view class="list">
-          <view class="div-line"></view>
-          <view class="list-el">
-            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
-            <view class="list-el-text">
-              <text class="item-title">校友会徽章</text>
-              <text class="item-description">2020年校友限定版</text>
-              <text class="item-price">¥27</text>
+          <block wx:for="{{dataList.mock.order.items}}" wx:for-item="item">
+            <view class="div-line"></view>
+            <view class="list-el">
+              <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+              <view class="list-el-text">
+                <text class="item-title">{{item.title}}</text>
+                <text class="item-description">{{item.description}}</text>
+                <text class="item-price">¥{{item.price}}</text>
+              </view>
             </view>
-          </view>
-          <view class="div-line"></view>
-          <view class="list-el">
-            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
-            <view class="list-el-text">
-              <text class="item-title">校友会徽章</text>
-              <text class="item-description">2020年校友限定版</text>
-              <text class="item-price">¥27</text>
-            </view>
-          </view>
-          <view class="div-line"></view>
-          <view class="list-el">
-            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
-            <view class="list-el-text">
-              <text class="item-title">校友会徽章</text>
-              <text class="item-description">2020年校友限定版</text>
-              <text class="item-price">¥27</text>
-            </view>
-          </view>
+          </block>
         </view>
-
       </scroll-view>
     </swiper-item>
     <swiper-item class="swiper-page">
@@ -72,17 +55,18 @@
           </swiper-item>
         </swiper>
         <view class="list">
-          <view class="div-line"></view>
-          <view class="list-el">
-            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
-            <view class="list-el-text">
-              <text class="item-title">校友会徽章</text>
-              <text class="item-description">2020年校友限定版</text>
-              <text class="item-price">¥27</text>
+          <block wx:for="{{dataList.mock.career.items}}" wx:for-item="item">
+            <view class="div-line"></view>
+            <view class="list-el">
+              <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+              <view class="list-el-text">
+                <text class="item-title">{{item.title}}</text>
+                <text class="item-description">{{item.type}}</text>
+                <text class="item-price">{{item.status}}</text>
+              </view>
             </view>
-          </view>
+          </block>
         </view>
-
       </scroll-view>
     </swiper-item>
     <swiper-item class="swiper-page">
@@ -96,17 +80,18 @@
           </swiper-item>
         </swiper>
         <view class="list">
-          <view class="div-line"></view>
-          <view class="list-el">
-            <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
-            <view class="list-el-text">
-              <text class="item-title">校友会徽章</text>
-              <text class="item-description">2020年校友限定版</text>
-              <text class="item-price">¥27</text>
+          <block wx:for="{{dataList.mock.welfare.items}}" wx:for-item="item">
+            <view class="div-line"></view>
+            <view class="list-el">
+              <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+              <view class="list-el-text">
+                <text class="item-title">{{item.title}}</text>
+                <text class="item-description">{{item.description}}</text>
+                <text class="item-price">{{item.status}}</text>
+              </view>
             </view>
-          </view>
+          </block>
         </view>
-
       </scroll-view>
     </swiper-item>
   </swiper>

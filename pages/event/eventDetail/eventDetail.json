@@ -1,7 +1,7 @@
 {
   "usingComponents": {},
-  "navigationBarBackgroundColor": "#0000CD",
-  "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "附近店铺",
+  "navigationBarBackgroundColor": "#FFF",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "校友会活动",
   "enablePullDownRefresh": false
 }
