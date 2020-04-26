@@ -2,23 +2,23 @@
 <view class="container">
   <view class="header">
     <text id="page-title">校友会服务</text>
-    <icon id="search" type="search" size="60rpx" color="#000000" ></icon>
+    <icon id="search" type="search" size="60rpx" color="#000000" bindtap="tapSearch"></icon>
   </view>
   <view class="navbar">
     <view class="navbar-row">
-      <view class="navbar-item navbar-selected" id="campus-order">
+      <view class="navbar-item {{currentSwipe == 0 ? 'navbar-selected' : ''}}" id="campus-order" data-current="0" bindtap="navbarChange">
         <text>校园订购</text>
       </view>
-      <view class="navbar-item" id="career-dev">
+      <view class="navbar-item {{currentSwipe == 1 ? 'navbar-selected' : ''}}" id="career-dev" data-current="1" bindtap="navbarChange">
         <text>职发求职</text>
       </view>
-      <view class="navbar-item" id="alumni-welfare">
+      <view class="navbar-item {{currentSwipe == 2 ? 'navbar-selected' : ''}}" id="alumni-welfare" data-current="2" bindtap="navbarChange">
         <text>校友福利</text>
       </view>
     </view>
-    <view id="navbar-underline"></view>
+    <view class="navbar-underline {{navbarLine}}"></view>
   </view>
-  <swiper class="outer-swiper">
+  <swiper current="{{currentSwipe}}" class="outer-swiper" bindchange="swiperChange">
     <swiper-item class="swiper-page">
       <scroll-view scroll-y="true">
         <swiper class="slideshow" indicator-dots="true" autoplay="true" interval="5000" duration="500">

@@ -22,7 +22,9 @@ Page({
       "text": "我的",
       "iconPath": "/image/test.jpg",
       "selectedIconPath": "/image/test.jpg"
-    }]  
+    }],
+    currentSwipe: 0,
+    navbarLine: ""  
   },
 
   // tabbar 控制
@@ -36,6 +38,50 @@ Page({
     } else if (e.detail.index == 2) {
       // TODO
     }
+  },
+
+  navbarChange(e) {
+    console.log('navbar', e.currentTarget.id)
+    console.log('navbar', e.currentTarget.dataset.current)
+    this.setData ({
+      'currentSwipe': e.currentTarget.dataset.current
+    })
+    this.setCurrent(e.currentTarget.dataset.current)
+  },
+    
+
+  swiperChange(e) {
+    this.setData({
+      'currentSwipe': e.detail.current
+    })
+    this.setCurrent(e.detail.current)
+  },
+
+  setCurrent(index) {
+    index = index.toString()
+    switch(index) {
+      case '0':
+        this.setData({
+          'navbarLine': ''
+        })
+        break
+      case '1':
+        this.setData({
+          'navbarLine': 'navbar-cd'
+        })
+        break
+      case '2':
+        this.setData({
+          'navbarLine': 'navbar-aw'
+        })
+        break    
+    }
+  },
+
+  tapSearch() {
+    wx.navigateTo({
+      url: '/pages/search/search',
+    })
   },
 
   /**
