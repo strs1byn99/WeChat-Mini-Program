@@ -59,13 +59,21 @@
 
 }
 
-#navbar-underline{
+.navbar-underline {
   background-color: #0000CD;
   height: 4rpx;
   width: 55rpx;
   position: absolute;
   left: 20rpx;
   top: 70rpx;
+}
+
+.navbar-cd {
+  left: 170rpx;
+}
+
+.navbar-aw {
+  left: 320rpx;
 }
 
 .navbar-selected {
