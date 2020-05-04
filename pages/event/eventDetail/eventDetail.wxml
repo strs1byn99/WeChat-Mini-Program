@@ -1,8 +1,8 @@
 <view class="container">
   <view class="title">
-    <text class="caseTitle">校园会聚餐</text>
+    <text class="caseTitle">{{eventDetails.title}}</text>
     <view class="subTitle">
-      <text>70元以下 综合</text>
+      <text>{{eventDetails.subTitle}}</text>
     </view>
     <view class="iconImage">
       <image src="/image/test.jpg"></image>
@@ -23,22 +23,22 @@
   </view>
   <view class="description-Text">
     <view class="description_Text">
-      <text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</text>
-      <text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</text>
-      <text>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</text>
+      <text>{{eventDetails.descriptions1}}</text>
+      <text>{{eventDetails.descriptions2}}</text>
+      <text>{{eventDetails.descriptions3}}</text>
     </view>
   </view>
   <view class="time"> 
     <text>活动时间</text>
-    <text>12:00-22:00</text>
+    <text>{{eventDetails.time}}</text>
   </view>
   <view class="address"> 
     <text>活动地址</text>
-    <text>xxxxxxxxxxxxxxxxx</text>
+    <text>{{eventDetails.address}}</text>
   </view>
   <view class="phone"> 
     <text>联系人电话</text>
-    <text>xxxxxxxxxxxxxxx</text>
+    <text>{{eventDetails.phone}}</text>
   </view>
 
   <view class="tag">
@@ -56,7 +56,6 @@
       <view class="tag5">
         <text class="text1">下午茶</text>
       </view>
-
     </view>
   </view>
 </view>

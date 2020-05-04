@@ -2,43 +2,13 @@
 const app = getApp()
 const DB = wx.cloud.database()
 const EVENT = DB.collection("event")
-const TOP_EVENT = DB.collection("top_event")
+const EVENT_DETAILS = DB.collection("event_details")
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    topEvent: [{
-      // "title": '',
-      // "member": '',
-      // "description": '',
-      // "image": ''
-    },
-    {
-      // "title": '',
-      // "member": '',
-      // "description": '',
-      // "image": ''
-    },
-    {
-      // "title": '',
-      // "member": '',
-      // "description": '',
-      // "image": ''
-    },
-    {
-      // "title": '',
-      // "member": '',
-      // "description": '',
-      // "image": ''
-    },
-    { 
-      // "title": '',
-      // "member": '',
-      // "description": '',
-      // "image": ''
-    }],
     list: [{
       "pagePath": "event",
       "text": "活动",
@@ -56,26 +26,25 @@ Page({
       "iconPath": "/image/test.jpg",
       "selectedIconPath": "/image/test.jpg"
     }],
-    caseList:[{
-      
+    topEvent: [{
     },
     {
-      
     },
     {
-      
     },
     {
-      
     },
-    {
-      
-    }]
+    { 
+    }],
+    currentSwipe: 0,
+    navbarLine: ""  
   },
 
   jumpDetail:function(e){
+    console.log(e)
     wx.navigateTo({
-      url: "/pages/event/eventDetail/eventDetail",
+      // url: "/pages/event/eventDetail/eventDetail?index=" + e.currentTarget.dataset.index,
+      url: "/pages/event/eventDetail/eventDetail?index=" + e.currentTarget.id,
       success: function(res){
         console.log('success')
       },
@@ -85,48 +54,131 @@ Page({
       }
     })
   },
-  increaseLike: function(e){
-    var that = this;
-    var index = e.target.dataset.index;
-    console.log(index);
-    if(that.data.caseList[index].liked == true){
-      EVENT.where({
-        identi: DB.command.eq(index)
-      }).update({
-        data:{
-          likeNum: DB.command.inc(-1),
-          liked: false
-        },
-        success: function(res) {
-          console.log(res)
-        },
-        fail: function(res) {
-          console.log("fail", res)
-        }
+
+  swiperChange(e){
+    this.setData ({
+      'currentSwipe': e.detail.current
+    })
+    this.setCurrent(e.detail.current)
+  },
+  navbarChange(e){
+    this.setData ({
+      'currentSwipe': e.currentTarget.dataset.current
+    })
+    this.setCurrent(e.currentTarget.dataset.current)
+  },
+
+  setCurrent(index){
+    if(index == 0)
+    {
+      this.setData({
+        'navbarLine': ''
       })
     }
     else{
-      EVENT.where({
-        identi: DB.command.eq(index)
-      }).update({
-        data:{
-          likeNum: DB.command.inc(1),
-          liked: true
-        },
-        success: function(res) {
-          console.log(res)
-        },
-        fail: function(res) {
-          console.log("fail", res)
-        }
+      this.setData({
+        'navbarLine': 'navbar-1'
       })
     }
-    
   },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    EVENT.where({
+      topEvent: {
+        isTop: true,
+        locations: "all"
+      }
+    }).get({
+      success: function(res) {
+        console.log(res.data)
+        that.setData({
+          topEvent: res.data,
+        })
+        // console.log(that.data)
+      },
+      fail: function(res) {
+        console.log("top_event data fail", res)
+      }
+    }),
+    EVENT.where({
+      topEvent: {
+        isTop: true,
+        locations: "alumni"
+      }
+    }).get({
+      success: function(res) {
+        console.log(res.data)
+        that.setData({
+          topEvent1: res.data,
+        })
+        // console.log(that.data)
+      },
+      fail: function(res) {
+        console.log("top_event data fail", res)
+      }
+    }),
+    EVENT.where({
+      bottomEvent: {
+        isAll: true
+      }
+    }).get({
+      success: function(res) {
+        // console.log(res.data)
+        that.setData({
+          allEvent: res.data
+        })
+        // console.log(that.data)
+      },
+      fail: function(res) {
+        console.log("event data(all) fail", res)
+      }
+    }),
+    EVENT.where({
+      bottomEvent: {
+        isAlumni: true
+      }
+    }).get({
+      success: function(res) {
+        // console.log(res.data)
+        that.setData({
+          alumniEvent: res.data
+        })
+        // console.log(that.data)
+      },
+      fail: function(res) {
+        console.log("event data(alumni) fail", res)
+      }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    // EVENT.add({
+    //   data: {
+    //     image: '',
+    //     member: 'YYY 活动 【活动名字】',
+    //     title: 'YYY 社团',
+    //     description: '暑假来了，一起庆祝吧',
+    //     description1: 'YYYYYYYYYYYYYYYYYYYYYYYYY.',
+    //     "topEvent": {
+    //       "isTop": true,
+    //       "locations": "alumni"
+    //     }
+    //   },
+    //   success: function(res) {
+    //     console.log("success", res)
+    //   },
+    //   fail: function(res) {
+    //     console.log("fail", res)
+    //   }
+    // })
+
     // EVENT.add({
     //   data: {
     //     icon: '',
@@ -146,40 +198,28 @@ Page({
     //   }
     // })
 
-    var that = this
-    TOP_EVENT.where({
-    }).get({
-      success: function(res) {
-        console.log(res.data)
-        that.setData({
-          topEvent: res.data,
-        })
-        console.log(that.data)
-      },
-      fail: function(res) {
-        console.log("fail", res)
-      }
-    }),
-    EVENT.where({
-    }).get({
-      success: function(res) {
-        console.log(res.data)
-        that.setData({
-          caseList: res.data
-        })
-        console.log(that.data)
-      },
-      fail: function(res) {
-        console.log("fail", res)
-      }
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+    // EVENT_DETAILS.add({
+    //     data: {
+    //       icon: '',
+    //       image: '',
+    //       index: 'topAlumni',
+    //       phone: 'xxxxxxxxxxxxxxx',
+    //       address: 'xxxxxxxxxxxxxxxxx',
+    //       descriptions1: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxY',
+    //       descriptions2:'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    //       descriptions3: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    //       subTitle: '70元以下 综合',
+    //       tag: '',
+    //       time: '12:00-22:00',
+    //       title: '校园会聚餐'
+    //     },
+    //     success: function(res) {
+    //       console.log("success", res)
+    //     },
+    //     fail: function(res) {
+    //       console.log("fail", res)
+    //     }
+    //   })
   },
 
   /**
@@ -238,6 +278,25 @@ Page({
       // TODO
     }
   },
-
-
 })
+
+
+
+    // EVENT.add({
+    //   data: {
+    //     icon: '',
+    //     header: 'XXX 活动 【活动名字】',
+    //     subHeader: 'XXX 社团',
+    //     descriptionText1: 'fffffffffffffffffffffffffffffffffffff',
+    //     descriptionText2: 'fffffffffffffffffffffffffffffffffffff.',
+    //     likeNum: 100, 
+    //     commentNum: 100,
+    //     identi: 4
+    //   },
+    //   success: function(res) {
+    //     console.log("success", res)
+    //   },
+    //   fail: function(res) {
+    //     console.log("fail", res)
+    //   }
+    // })

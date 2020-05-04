@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/search/search",
     "pages/event/event",
+    "pages/event/eventDetail/eventDetail",
+    "pages/search/search",
     "pages/service/service"
   ],
   "window": {

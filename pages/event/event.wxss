@@ -66,12 +66,13 @@
 
 }
 
-#navbar-underline{
+.navbar-underline{
   background-color: #0000CD;
   height: 4rpx;
   width: 55rpx;
-  position: relative;
+  position: absolute;
   left: 20rpx;
+  top: 70rpx;
 }
 
 .navbar-selected {
@@ -236,8 +237,9 @@ scroll-view {
   position: absolute;
   margin-top: 150rpx;
   margin-left: 40rpx;
+  word-break: keep-all;
   /* background-color: black; */
-}
+} 
 
 .case-descriptions text{
   font-size: 32rpx;
@@ -268,3 +270,6 @@ scroll-view {
   /* margin-top: -300rpx; */
 }
 
+.navbar-1{
+  left: 170rpx;
+}
