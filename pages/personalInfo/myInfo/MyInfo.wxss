@@ -1,0 +1,191 @@
+/* pages/MyInfo/MyInfo.wxss */
+
+  .container1 {
+   width: 100%;
+   height: 1500rpx;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 7rpx 7rpx 0rpx 7rpx;
+   background-color: rgba(224, 221, 221, 0.774);
+   
+}
+.title{
+  width: 100%;
+  height: 450rpx;
+  /* position: relative; */
+  display: flex;
+  background-color: #1a1af5;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10rpx 10rpx;
+  margin-bottom: 5rpx;
+}
+.content{
+  width: 100%;
+  height: 1000rpx;
+  background-color: rgb(255, 255, 255);
+}
+.subContent{
+  width: 100%;
+  height: 400rpx;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 45rpx 0 0 30rpx;
+  background-color: rgb(255, 255, 255);
+}
+.text{
+  display: inline-block;
+  font-size: 30rpx;
+  color: #262626;
+}
+.subContent .symbol{
+  position: absolute;
+  right: 50rpx;
+}
+.title .symbol2{
+  position: absolute;
+  right: 30rpx;
+  bottom: 20rpx;
+  color:  rgb(255, 255, 255);
+}
+
+.connectButton{
+  height: 73rpx;
+  background-color: #3daadd;
+  position: absolute;
+  margin-top: 335rpx;
+  font-size: 30rpx;
+  padding-left:20rpx;
+  margin-left: 40rpx;
+  transform: translateX(2%);
+}
+.buttonText{
+ position: absolute;
+ left:30rpx;
+  color: #EEEEEE;
+  font-size: 27rpx;
+   bottom: 20rpx 
+
+}
+.profileImg{
+  box-sizing: border-box;
+  position: absolute;
+  top: 85rpx;
+  left: 30rpx;
+  border-radius:  100%;
+  border: 3rpx solid #EEEEEE;
+  overflow: hidden;
+  display: block;
+   width: 110rpx;
+   height: 110rpx;
+}
+.settingLogo{
+  display: block;
+  width: 110rpx;
+  height: 110rpx;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  border-radius:  100%;
+  overflow: hidden;
+}
+
+.profileImg image{
+   display: block;
+   width: 110rpx;
+   height: 110rpx;
+}
+.textColumn{
+  height: 50rpx;
+  margin-top: 70rpx;
+  margin-left: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.textColumn2{
+  height: 50rpx;
+  padding-top: 210rpx;
+  /* margin-left: 40rpx; */
+  /* transform: translateX(-310%); */
+  /* padding-right: 80rpx; */
+  position: absolute;
+  left: 40rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  
+}
+.textColumn3{
+  height: 50rpx;
+  padding-top: 210rpx;
+  /* transform: translateX(-220%); */
+  position: absolute;
+  left: 230rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.textColumn4{
+  height: 50rpx;
+  padding-top: 210rpx;
+  /* transform: translateX(-130%); */
+   position: absolute;
+  right: 230rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.textColumn5{
+  height: 50rpx;
+  padding-top: 210rpx;
+  /* transform: translateX(-40%); */
+   position: absolute;
+  right: 40rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#type1{
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  font-size: 38rpx;
+}
+#type2{
+  padding-top: 15rpx;
+  color: rgb(255, 255, 255);
+  font-size: 25rpx;
+}
+#type3{
+  margin-top: 10rpx;
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  font-size: 38rpx;
+}
+.navName{
+  display: flex;
+  flex-direction: nowrap row;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* padding-top: 15rpx; */
+
+  color: rgb(255, 255, 255);
+  font-weight: 540;
+  font-size: 25rpx;
+}
