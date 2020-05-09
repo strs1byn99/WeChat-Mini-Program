@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/personalInfo/myInfo/myInfo",
     "pages/event/event",
     "pages/event/eventDetail/eventDetail",
     "pages/search/search",
     "pages/service/service"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
