@@ -25,7 +25,7 @@
         <view class = 'navName' id="type4">关注活动</view>
       </view>
     </navigator>
-    <navigator url="/pages/JodDevelopment/JodDevelopment">
+    <navigator url="/pages/personalInfo/jodDevelopment/jodDevelopment">
       <view class = 'textColumn3'>
         <text class='count' id="type3">{{numJob}}</text>
         <view class = 'navName' id="type4">关注职发</view>
