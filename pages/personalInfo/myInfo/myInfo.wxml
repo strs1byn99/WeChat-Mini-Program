@@ -58,7 +58,7 @@
   <text class='text' id='help'>帮助与反馈</text> 
      <text class='symbol' >></text>
   </navigator>
-  <navigator url="/pages/personalInfo/conntact/conntact">
+  <navigator url="/pages/personalInfo/contact/contact">
   <text class='text' id='conntact'>联系校友会</text>
      <text class='symbol' >></text> 
   </navigator>
