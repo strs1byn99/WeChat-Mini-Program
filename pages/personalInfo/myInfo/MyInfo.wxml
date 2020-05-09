@@ -31,13 +31,13 @@
         <view class = 'navName' id="type4">关注职发</view>
       </view>
     </navigator>
-    <navigator url="/pages/Purchase/Purchase">
+    <navigator url="/pages/personalInfo/Purchase/Purchase">
       <view class = 'textColumn4'>
         <text class='count' id="type3">{{numPurchase}}</text>
         <view class = 'navName' id="type4">关注订购</view>
       </view>
     </navigator>
-    <navigator url="/pages/Shared/Shared">
+    <navigator url="/pages/personalInfo/Shared/Shared">
       <view class = 'textColumn5'>
         <text class='count' id="type3">{{numShared}}</text>
         <view class = 'navName' id="type4">我的分享</view>
@@ -46,19 +46,19 @@
   </view>
   <view class='content'>
     <view class = 'subContent'>
-  <navigator url="/pages/personalinfo/connectaccount/connectaccount">
+  <navigator url="/pages/personalInfo/connectAccount/connectAccount">
   <text class='text' id='connect/disconnect' >绑定账号/解除账号</text>
     <text class='symbol' >></text>
   </navigator>
-  <navigator url="/pages/securitycenter/securitycenter">
+  <navigator url="/pages/securityCenter/securityCenter">
   <text class='text' id='securityCenter'>手机账号安全中心</text> 
      <text class='symbol' >></text>
   </navigator>
-  <navigator url="/pages/help/help">
+  <navigator url="/pages/personalInfo/help/help">
   <text class='text' id='help'>帮助与反馈</text> 
      <text class='symbol' >></text>
   </navigator>
-  <navigator url="/pages/conntact/conntact">
+  <navigator url="/pages/personalInfo/conntact/conntact">
   <text class='text' id='conntact'>联系校友会</text>
      <text class='symbol' >></text> 
   </navigator>

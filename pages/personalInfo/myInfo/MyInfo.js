@@ -41,7 +41,7 @@ Page({
   connect: function(e){
     // const url = "pages/personalinfo/connectcard/connectcard"
     wx.navigateTo({
-      url: '../connectcard/connectcard',
+      url: '../connectCard/connectCard',
     })
   },
 

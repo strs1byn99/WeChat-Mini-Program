@@ -9,7 +9,7 @@
   <input class='input' placeholder="昵称" placeholder-class='placeholder' bindinput="addName" ></input>
   <input class ='input' placeholder="UCSC邮箱" placeholder-class='placeholder' bindinput="addEmail" ></input>
   <view class='verifyCode'>
-    <image src='{{verifyIcon}}'></image>
+    <!-- <image src='{{verifyIcon}}'></image> -->
     <input class='input' placeholder="验证码" placeholder-class='placeholder' bindinput="addCode"></input>
   </view>
   </view>
