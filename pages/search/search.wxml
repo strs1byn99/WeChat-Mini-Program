@@ -20,16 +20,58 @@
     </view>
   </scroll-view>
   
-  <!-- use wx:for to build hotlist section -->
-  <view class="hit-area">
-    <view class="hit-title"> 热门搜索 </view>  
-    <view class="hit-item-area-box">
-      <view class="hit-item-area" wx:for="{{hotList}}">
-        <view class="hit-item" bindtap="gotoResult">
-          {{item.description}}
-        </view> 
-      </view>    
+  <!-- 热门搜索推荐 -->
+  <view wx:if="{{showHotList == 1}}">
+    <view class="hit-area">
+      <view class="hit-title"> 热门搜索 </view>  
+      <view class="hit-item-area-box">
+        <view class="hit-item-area" wx:for="{{hotList}}">
+          <view class="hit-item" bindtap="jumpDetail" id="{{item.index}}">
+            {{item.title}}
+          </view> 
+        </view>    
+      </view>
     </view>
   </view>
+
+  <!-- 搜索结果列表 -->
+  <view wx:elif="{{showHotList == 0}}">
+    <view class="hit-area">
+      <view class="hit-title"> 热门搜索 </view>  
+      <!-- loop 所有结果-->
+      <view class="item-area-box">
+
+        <!-- 每一个结果 横向排布-->
+          <view class="item-box" wx:for="{{sourcesDetail}}" id="{{item.index}}" bindtap="jumpDetail">
+            <!-- image/des/detail 平行三列 左中右-->
+            <image src="../../image/test.jpg" class="item-image"></image>
+            <view class="item-des">
+              <view class="item-title">{{item.title}}</view>
+              <view class="item-subtitle">{{item.subTitle}}</view>
+            </view> 
+            <view class="item-detail">活动详情</view>
+          </view>
+
+      </view>
+    </view>
+
+  </view>
+
+  <view wx:else> 
+    <view class="fail">换个关键词试试吧！以下是全部内容</view>
+    <view class="item-area-box">
+      <!-- 每一个结果 横向排布-->
+        <view class="item-box" wx:for="{{Source}}" id="{{item.index}}" bindtap="jumpDetail">
+          <!-- image/des/detail 平行三列 左中右-->
+          <image src="../../image/test.jpg" class="item-image"></image>
+          <view class="item-des">
+            <view class="item-title">{{item.title}}</view>
+            <view class="item-subtitle">{{item.subTitle}}</view>
+          </view> 
+          <view class="item-detail">活动详情</view>
+        </view>
+    </view>
+  </view>
+  
   
 </view>

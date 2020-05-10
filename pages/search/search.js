@@ -1,11 +1,8 @@
-const db = wx.cloud.database();
-const searchResult = db.collection("searchResult");
-const topEvent = db.collection("top_event");
-// searchResult.add({
-//   data: {
-//     "title": "AAAA"
-//   }
-// }); 
+const app = getApp()
+const DB = wx.cloud.database()
+const searchResult = DB.collection("searchResult")
+const EVT_DETL = DB.collection("event_details")
+
 
 var arrayHeight = 0;
 Page({
@@ -13,18 +10,19 @@ Page({
    * Page initial data
    */
   data: {
-    Source: ["weixin", "wechat", "android", "Android", "IOS", "java", "javascript", "微信小程序", "微信公众号", "微信开发者工具"],  // 所有词条
-    bindSource: [], // 绑定到页面的数据，根据用户输入动态变化
-    history: [],  // 历史记录，暂不投入使用
+    Source: [], // 所有词条
+    // Source: ["weixin", "wechat", "android", "Android", "IOS", "java", "javascript", "微信小程序", "微信公众号", "微信开发者工具"],  
+    sourcesDetail: [], // 被搜索/被展示词条的详细信息
+    bindSource: [], // 联想词条
     inputValue: '', // 文本框数据
-    hotList:[]  // 热门搜索
+    hotList:[],  // 热门搜索
+    showHotList: 1
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.showHistory(); // Get 5 search histories
     this.getHotList(); // Get hot articles
     this.getArticles(); // Get all articles
   },
@@ -78,41 +76,25 @@ Page({
 
   },
 
-  getSearchResult: function () {
-    
-  },
-
   getHotList: function () {
-      topEvent.limit(5).get().then(res => {  // 应取所有数据中的点击率最高的文章 limit()
+    EVT_DETL.orderBy('hits', 'desc').get().then(res => {  // 应取所有数据中的点击率最高的文章 limit()
+      var hotlist = [];
+      for (var i = 0; i < 5; i++) {
+        hotlist.push(res.data[i]);
+      }
       this.setData({
-        hotList: res.data
+        hotList: hotlist
       });
       console.log(this.data.hotList);
     });
   },
 
   getArticles: function () {
-    topEvent.get().then(res => {  // 获取所有文章
-      var new_sources = this.data.Source;
-      res.data.forEach(function (x) {
-        new_sources.push(x.description)
-      });
+    EVT_DETL.orderBy('hits', 'desc').get().then(res => {  // 获取所有文章/Event
       this.setData({
-        Source: new_sources
+        Source: res.data
       });
       console.log(this.data.Source);
-    });
-  },
-
-  showHistory: function () { // OnLoad function
-    searchResult.count().then(res => {
-      // console.log(res.total);
-      searchResult.skip(res.total-5).limit(5).get().then(res => {
-        console.log(res.data);
-        this.setData({
-          history: res.data
-        });
-      });
     });
   },
 
@@ -126,10 +108,11 @@ Page({
     if (prefix != "") {
       // loop over all sources in Sources (later will update Sources with real data in DB)
       this.data.Source.forEach(function (x) {
-        var xlow = x.toLowerCase();
+        var xtitle = x.title;
+        var xlow = xtitle.toLowerCase();
         if (xlow.indexOf(prefix.toLowerCase()) != -1) {
-          console.log(x);
-          sources.push(x);
+          console.log(x.title);
+          sources.push(x.title);
         }
       });
     }
@@ -148,6 +131,41 @@ Page({
     }
   },
 
+  cancel: function(pageUrl) {
+    this.setData({
+      inputValue: '',  // clear inputValue
+      bindSource: [],
+      showHotList: 1
+    });
+  },
+
+  search: function (inputValue) {
+    var sources = [];  // 被搜索词条的匹配结果的所有title
+    if (inputValue != "") {
+      // 搜索算法
+      // 获得所有相关词条的title 以hits排序
+      this.data.Source.forEach(function (x) {
+        var reg = new RegExp(`[${inputValue}]`, 'gi');
+        var array = x.title.match(reg);
+        if (array != null) {
+          sources.push(x);
+        }
+        console.log(array);
+      });
+      console.log(sources);
+      this.setData({
+        sourcesDetail: sources
+      });
+      if (sources.length == 0) {
+        this.setData({showHotList: 2});
+      }
+    } else {
+      this.setData({
+        showHotList: true
+      });
+    }
+  }, 
+
   itemtap: function (e) {
     console.log(e);
     this.setData({
@@ -155,37 +173,32 @@ Page({
       hideScroll: true,
       bindSource: []
     });
-    // go to specific page
-  },
-
-  cancel: function() {
-    this.setData({
-      inputValue: '',  // clear inputValue
-      bindSource: []
-    });
+    // 去搜索结果页 confirm
+    this.search(this.data.inputValue);
   },
 
   confirm: function (e) {
+    this.setData({showHotList: 0});
     console.log(e.detail.value);  // 搜索词条
-    var sources = []              // automated sources 
-    console.log(prefix);
     this.setData({
       inputValue: e.detail.value,
       bindSource: []
     });
-    // searchResult.add({            // 加入搜索历史
-    //   data: {
-    //     "title": this.data.inputValue
-    //   }
-    // });
-    var prefix = this.data.inputValue;
-    if (prefix != "") {
-      // 搜索算法
-    }
+
+    // 去搜索结果页 confirm
+    this.search(this.data.inputValue);
   },
 
-  gotoResult: function (e) {
-    // go to specific page
-    console.log(this.data.inputValue);
+  jumpDetail: function (e) {
+    console.log(e);
+    wx.navigateTo({
+      url: "/pages/event/eventDetail/eventDetail?index=" + e.currentTarget.id,
+      success: function (res) {
+        console.log('success');
+      },
+      fail: function (res) {
+        console.log('fail');
+      }
+    });
   }
 })
