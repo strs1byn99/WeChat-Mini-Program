@@ -1,4 +1,4 @@
-// pages/connectAccount/connectAccount.js
+// pages/Purchase/Purchase.js
 Page({
 
   /**

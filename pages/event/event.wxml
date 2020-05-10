@@ -5,21 +5,23 @@
     <image class="searchImage" src="/image/search.png"></image>
     <!-- <icon id="search" type="search" size="60rpx" color="#000000" ></icon> -->
   </view>
+
   <view class="navbar">
     <view class="navbar-row">
-      <view class="navbar-item navbar-selected" id="all-event">
+      <view class="navbar-item {{currentSwipe == 0 ? 'navbar-selected' : ''}}" id="all-event" data-current="0" bindtap="navbarChange">
         <text>全部活动</text>
       </view>
-      <view class="navbar-item" id="caa-event">
+      <view class="navbar-item {{currentSwipe == 1 ? 'navbar-selected' : ''}}" id="caa-event" data-current="1" bindtap="navbarChange">
         <text>校友会活动</text>
       </view>
     </view>
-    <view id="navbar-underline"></view>
+    <view class="navbar-underline {{navbarLine}}"></view>
   </view>
-  <swiper>
+
+  <swiper current="{{currentSwipe}}" bindchange="swiperChange">
     <swiper-item>
       <scroll-view scroll-y="true" style="width:100%; height:930rpx;">
-        <view class="topEvent" bindtap="jumpDetail">
+        <view class="topEvent" bindtap="jumpDetail" id='{{topEvent[0].index}}'>
           <text id="top-text">置顶活动</text>
           <view class="top-card">
             <text id="top-title">{{topEvent[0].title}}</text>
@@ -30,7 +32,7 @@
           </view>
         </view >
         
-        <view class="caseList" wx:for='{{caseList}}'>
+        <view class="caseList" wx:for='{{allEvent}}'>
           <view class="caseHeader">
             <text class="case-title">{{item.header}}</text>
             <view class="case-subHeader">
@@ -40,42 +42,28 @@
           <view class="IconImage">
             <image src='/image/13.jpg'></image>
           </view>
-          <view class="case-descriptions" bindtap="jumpDetail">
+          <view class="case-descriptions" bindtap="jumpDetail" id='{{item.index}}'>
             <text class="descriptionText">{{item.descriptionText1}}</text>
             <text class="descriptionText">{{item.descriptionText2}}</text>
           </view>
-          <!-- <view class="shareCommentLike">
-            <view class="share">
-              <image src="/image/share.jpg"></image> 
-              <text class="shareText">分享</text>
-            </view>
-            <view class="comment">
-              <image src="/image/comment.png"></image> 
-              <text>{{item.commentNum}}</text>
-            </view>
-            <view class="like">
-              <image src="/image/like.png" bindtap="increaseLike" data-index='{{index}}'></image> 
-              <text>{{item.likeNum}}</text>
-            </view>
-          </view> -->
         </view>
       </scroll-view>
     </swiper-item>
 
     <swiper-item>
       <scroll-view scroll-y="true" style="width:100%; height:930rpx;">
-        <view class="topEvent" bindtap="jumpDetail">
+        <view class="topEvent" bindtap="jumpDetail" id='{{topEvent1[0].index}}'>
           <text id="top-text">置顶活动</text>
           <view class="top-card">
-            <text id="top-title">{{topEvent[1].title}}</text>
-            <text id="top-member">{{topEvent[1].member}}</text>
-            <text id="top-description">{{topEvent[0].description}}</text>
-            <text id="top-description1">{{topEvent[0].description1}}</text>
+            <text id="top-title">{{topEvent1[0].title}}</text>
+            <text id="top-member">{{topEvent1[0].member}}</text>
+            <text id="top-description">{{topEvent1[0].description}}</text>
+            <text id="top-description1">{{topEvent1[0].description1}}</text>
             <image id="top-image" src="/image/animalcrossing.jpg" mode="aspectFit"></image>
           </view>
         </view >
         
-        <view class="caseList" wx:for='{{caseList}}'>
+        <view class="caseList" wx:for='{{alumniEvent}}'>
           <view class="caseHeader">
             <text class="case-title">{{item.header}}</text>
             <view class="case-subHeader">
@@ -85,24 +73,12 @@
           <view class="IconImage">
             <image src='/image/13.jpg'></image>
           </view>
-          <view class="case-descriptions" bindtap="jumpDetail">
+          <view class="case-descriptions" bindtap="jumpDetail" id='{{item.index}}'>
+            <!-- <text class="descriptionText">{{item.descriptionText1}}</text>
+            <text class="descriptionText">{{item.descriptionText2}}</text> -->
             <text class="descriptionText">{{item.descriptionText1}}</text>
             <text class="descriptionText">{{item.descriptionText2}}</text>
           </view>
-          <!-- <view class="shareCommentLike">
-            <view class="share">
-              <image src="/image/share.jpg"></image> 
-              <text class="shareText">分享</text>
-            </view>
-            <view class="comment">
-              <image src="/image/comment.png" bindtap="increaseComment"></image> 
-              <text>{{item.commentNum}}</text>
-            </view>
-            <view class="like">
-              <image src="/image/like.png"></image> 
-              <text>{{item.likeNum}}</text>
-            </view>
-          </view> -->
         </view>
       </scroll-view>
     </swiper-item>

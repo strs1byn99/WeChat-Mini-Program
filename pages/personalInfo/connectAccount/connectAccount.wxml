@@ -6,20 +6,20 @@
  </text>
  </view>
   <view class ='inputContent'>
-  <input class='input' placeholder="昵称" placeholder-class='placeholder' bindinput="addName"></input>
-  <input class ='input' placeholder="邮箱" placeholder-class='placeholder' bindinput="addEmail" ></input>
+  <input class='input' placeholder="昵称" placeholder-class='placeholder' bindinput="addName" ></input>
+  <input class ='input' placeholder="UCSC邮箱" placeholder-class='placeholder' bindinput="addEmail" ></input>
   <view class='verifyCode'>
-    <image src='{{verifyIcon}}'></image>
+    <!-- <image src='{{verifyIcon}}'></image> -->
     <input class='input' placeholder="验证码" placeholder-class='placeholder' bindinput="addCode"></input>
   </view>
   </view>
   <view class = 'container-bottom'>
-  <button class='signUp' bindtap="signUp" style="width: 680rpx; height:110rpx;">
+  <button class='signUp' bindtap="signUp"  style="width: 680rpx; height:110rpx;">
   <text id='signUpText'>同意协议并注册</text>
   </button>
   <checkbox class='checkbox' value ='0' checked='同意'>
   <text >《注册协议》</text>
   </checkbox>
-  
   </view>
 </view>
+

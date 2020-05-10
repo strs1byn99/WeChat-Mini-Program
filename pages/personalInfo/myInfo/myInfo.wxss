@@ -9,11 +9,12 @@
    align-items: center;
    padding: 7rpx 7rpx 0rpx 7rpx;
    background-color: rgba(224, 221, 221, 0.774);
+   
 }
 .title{
   width: 100%;
   height: 450rpx;
-  position: relative;
+  /* position: relative; */
   display: flex;
   background-color: #1a1af5;
   flex-direction: row;
@@ -30,7 +31,7 @@
 .subContent{
   width: 100%;
   height: 400rpx;
-  position: relative;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,23 +51,27 @@
 .title .symbol2{
   position: absolute;
   right: 30rpx;
-  bottom: 0rpx;
+  bottom: 20rpx;
   color:  rgb(255, 255, 255);
 }
 
 .connectButton{
-  width: 710rpx;
   height: 73rpx;
-  background-color: #3babdf;
+  background-color: #3daadd;
   position: absolute;
-  margin-top: 320rpx;
+  margin-top: 335rpx;
   font-size: 30rpx;
   padding-left:20rpx;
+  margin-left: 40rpx;
   transform: translateX(2%);
 }
 .buttonText{
+ position: absolute;
+ left:30rpx;
   color: #EEEEEE;
-  font-size: 27rpx
+  font-size: 27rpx;
+   bottom: 20rpx 
+
 }
 .profileImg{
   box-sizing: border-box;
@@ -76,6 +81,9 @@
   border-radius:  100%;
   border: 3rpx solid #EEEEEE;
   overflow: hidden;
+  display: block;
+   width: 110rpx;
+   height: 110rpx;
 }
 .settingLogo{
   display: block;
@@ -87,11 +95,7 @@
   border-radius:  100%;
   overflow: hidden;
 }
-.settingLogo image{
-   display: block;
-   width: 110rpx;
-   height: 110rpx;
-}
+
 .profileImg image{
    display: block;
    width: 110rpx;
@@ -99,8 +103,8 @@
 }
 .textColumn{
   height: 50rpx;
-  padding-top: 80rpx;
-  padding-left: 150rpx;
+  margin-top: 70rpx;
+  margin-left: 150rpx;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -109,18 +113,26 @@
 .textColumn2{
   height: 50rpx;
   padding-top: 210rpx;
-  transform: translateX(-290%);
+  /* margin-left: 40rpx; */
+  /* transform: translateX(-310%); */
   /* padding-right: 80rpx; */
+  position: absolute;
+  left: 40rpx;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  
 }
 .textColumn3{
   height: 50rpx;
   padding-top: 210rpx;
-  transform: translateX(-200%);
+  /* transform: translateX(-220%); */
+  position: absolute;
+  left: 230rpx;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -128,8 +140,11 @@
 .textColumn4{
   height: 50rpx;
   padding-top: 210rpx;
-  transform: translateX(-110%);
+  /* transform: translateX(-130%); */
+   position: absolute;
+  right: 230rpx;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -137,8 +152,11 @@
 .textColumn5{
   height: 50rpx;
   padding-top: 210rpx;
-  transform: translateX(-20%);
+  /* transform: translateX(-40%); */
+   position: absolute;
+  right: 40rpx;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -155,12 +173,18 @@
   font-size: 25rpx;
 }
 #type3{
+  margin-top: 10rpx;
   color: rgb(255, 255, 255);
   font-weight: 400;
   font-size: 38rpx;
 }
-#type4{
-  padding-top: 15rpx;
+.navName{
+  display: flex;
+  flex-direction: nowrap row;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* padding-top: 15rpx; */
+
   color: rgb(255, 255, 255);
   font-weight: 540;
   font-size: 25rpx;

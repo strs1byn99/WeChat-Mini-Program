@@ -1,4 +1,4 @@
-// pages/conntact/contact.js
+// pages/personalinfo/connectcard/connectcard.js
 Page({
 
   /**
