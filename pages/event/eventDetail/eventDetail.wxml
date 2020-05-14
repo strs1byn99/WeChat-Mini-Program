@@ -46,15 +46,19 @@
     <view class="tag1">
       <view class="tag2">
         <text class="text1">韩式烤肉</text>
+        <button plain="true"></button>
       </view>
       <view class="tag3">
         <text class="text1">面包甜点</text>
+        <button plain="true"></button>
       </view>
       <view class="tag4">
         <text class="text1">奶茶饮料</text>
+        <button plain="true"></button>
       </view>
       <view class="tag5">
-        <text class="text1">下午茶</text>
+        <text class="text2">下午茶</text>
+        <button plain="true"></button>
       </view>
     </view>
   </view>

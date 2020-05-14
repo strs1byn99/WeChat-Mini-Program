@@ -18,6 +18,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    console.log(options)
     EVENT_DETAILS.where({
       index: options.index
     }).get({
