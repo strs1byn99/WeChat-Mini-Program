@@ -1,1 +1,136 @@
+/* pages/personalInfo/connectCard2/connectCard2.wxss */
 /* pages/personalinfo/connectcard/connectcard.wxss */
+@import "../../../weui-miniprogram/weui-wxss/dist/style/weui.wxss";
+.container3{
+   width: 100%;
+   height: 1500rpx;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   padding: 7rpx 7rpx 0rpx 7rpx;
+   background-color: rgba(240, 236, 236, 0.774);
+   
+  
+}
+scroll-view{
+  position: absolute;
+  margin-top: 100rpx;
+  width:100%;
+  height:900rpx;
+}
+.background{
+  width: 100%;
+  height: 100%;
+  position:fixed; 
+  background-size:100% 100%;
+  z-index: -1;
+}
+.directory{
+  display: flex;
+  position: absolute;
+  bottom: 50rpx;
+  right: 300rpx;
+}
+#nextpage{
+  font-weight: 400;
+  font-size: 40rpx;
+}
+#symbol{
+  display: flex;
+  position: absolute;
+  right: 420rpx;
+  bottom: 45rpx;
+  font-weight: 600;
+  font-size: 45rpx;
+}
+.inputContent{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 5rpx;
+  top: 100rpx
+}
+.input{
+  width: 575rpx;
+  height: 80rpx;
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* position: relative; */
+  background-color: rgb(255, 255, 255);
+  /* color: white; */
+  line-height: 100rpx;
+  text-align: left;
+  margin-left: 110rpx;
+  padding-left: 10rpx;
+}
+.sectionTitle{
+  font-size: 29rpx;
+  
+}
+.inputContainer{
+   width: 690rpx;
+  height: 80rpx;
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  /* position: relative; */
+  background-color: rgb(255, 255, 255);
+  /* color: white; */
+  line-height: 100rpx;
+  text-align: left;
+  margin-left: 20rpx;
+  padding-left: 20rpx;
+  margin-bottom: 13rpx;
+ 
+}
+.inputSelect{
+  width: 560rpx;
+  height: 80rpx;
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /* position: relative; */
+  background-color: rgb(255, 255, 255);
+  /* color: white; */
+  line-height: 100rpx;
+  text-align: left;
+  margin-left: 90rpx;
+  padding-left: 20rpx;
+}
+.sectionSymbol{
+  position: absolute;
+  right: 35rpx;
+  font-weight: 570;
+  font-size: 29rpx
+}
+.picker{
+  width: 510rpx;
+}
+.placeholder{
+  font-size: 29rpx;
+}
+.sectionTitleDate{
+  font-size: 27rpx
+}
+.connect{
+  position: absolute;
+  bottom: 130rpx;
+  margin: 40rpx 50rpx;
+  background-color:  #1a1af5;
+  border-radius: 100rpx;
+  padding-top: 30rpx;
+}
+#connectText{
+ color: #fff;
+  font-weight: 500;
+  font-size: 35rpx;
+}
