@@ -1,2 +1,15 @@
 <!--pages/conntact/contact.wxml-->
-<text>pages/conntact/contact.wxml</text>
+<view class="container">
+  <view class="box">
+    <text class="textSetting">联系地址</text>
+    <text class="textSetting1">XXXXXX</text>
+  </view>
+  <view class="box1">
+    <text class="textSetting">联系邮箱</text>
+    <text class="textSetting1">XXXXXX</text>
+  </view>
+  <view class="box2">
+    <text class="textSetting">联系电话</text>
+    <text class="textSetting1">XXXXXX</text>
+  </view>
+</view>

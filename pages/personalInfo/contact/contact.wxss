@@ -1,1 +1,46 @@
 /* pages/conntact/contact.wxss */
+.container{
+  display: block;
+  flex-direction: column;
+  width: 100%;
+  height: 1200rpx;
+  background-color: #f7f5f5
+}
+.box{
+  width: 715rpx;
+  height: 90rpx;
+  background-color: white;
+  margin-left: 20rpx;
+  margin-top: -120rpx;
+  position: absolute;
+}
+.box1{
+  width: 715rpx;
+  height: 90rpx;
+  background-color: white;
+  margin-left: 20rpx;
+  margin-top: -10rpx;
+  position: absolute;
+}
+.box2{
+  width: 715rpx;
+  height: 90rpx;
+  background-color: white;
+  margin-left: 20rpx;
+  margin-top: 100rpx;
+  position: absolute;
+}
+.textSetting{
+  font-size: 35rpx;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  position: absolute;
+}
+.textSetting1{
+  font-size: 32rpx;
+  margin-left: 180rpx;
+  margin-top: 25rpx;
+  color: grey;
+  position: absolute;
+}
+/* "navigationBarBackgroundColor": "#6878EE", */
