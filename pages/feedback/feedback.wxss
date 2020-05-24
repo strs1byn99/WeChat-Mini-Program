@@ -1,0 +1,54 @@
+/* pages/feedback/feedback.wxss */
+
+.fb-box {
+  /* width: 100%; */
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 5px;
+  border-radius: 10rpx;
+  margin: 20rpx;
+  height: 11rem;
+  border: #e9e9e9 solid 2px;
+}
+
+.fb-input {
+  width: 95%;
+  font-size: 15px;
+  margin: 0.8rem;
+}
+
+.wechat-box {
+  /* width: 100%; */
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 5px;
+  border-radius: 10rpx;
+  margin: 20rpx;
+  height: 3rem;
+  border: #e9e9e9 solid 2px;
+}
+
+.wechat-input {
+  font-size: 15px;
+  margin: 0.8rem;
+}
+
+.button {
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+  flex: auto;
+  border-radius: 5px;
+  border-radius: 10rpx;
+  margin: 20rpx;
+  height: 3rem;
+  background-color: #0000cd;
+  font-size: medium;
+}
+
+.submit {
+  color: white;
+  text-align: center;
+  padding-top: 0.6rem;
+}
