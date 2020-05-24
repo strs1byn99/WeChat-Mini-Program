@@ -1,2 +1,90 @@
 <!--pages/personalinfo/connectcard/connectcard.wxml-->
-<text>pages/personalinfo/connectcard/connectcard.wxml</text>
+
+<view class='container3' >
+  <image class='background' src="../../../image/connectCardImage.jpg" mode="aspectFill"></image>
+  <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-top="{{scrolltop}}" >
+    <view class ='inputContent'>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>姓名</text>
+        <input class='input'  placeholder="请输入真实姓名" value="{{name}}" placeholder-class='placeholder' bindinput="addName" ></input>
+      </view>
+    <view class = "inputContainer">
+        <picker bindchange="bindGenderPickerChange" placeholder="请选择性别" value="{{index0}}" range="{{array0}}">
+          <view class="picker">
+            <text style="margin-right: 40rpx; font-size: 28rpx">性别 </text>
+            {{array0[index0]}}
+          </view>
+        </picker>
+      <text class='sectionSymbol'>></text>
+      </view>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>手机</text>
+        <input class='input'  placeholder="请输入手机号码" value="{{phone}}" placeholder-class='placeholder' bindinput="addPhone" ></input>
+        </view>
+         <view class = "inputContainer">
+        <text class='sectionTitle'>邮箱</text>
+        <input class='input'  placeholder="请输入邮箱"value="{{email}}" placeholder-class='placeholder' bindinput="addEmail" ></input>
+      </view>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>微信ID</text>
+        <input class='input'  placeholder="请输入微信号"value="{{weChatId}}" placeholder-class='placeholder' bindinput="addWeID" ></input>
+      </view>
+      <view class = "inputContainer">
+      <text class='sectionTitle'>所在国家</text>
+        <input class='input'  placeholder="请输入现居住国家" value="{{country}}" placeholder-class='placeholder' bindinput="addCountry" ></input>
+      </view>
+      <view class = "inputContainer">
+      <text class='sectionTitle'>地址1</text>
+        <input class='input'  placeholder="请输入地址" value="{{address1}}"placeholder-class='placeholder' bindinput="addAddress1" ></input>
+      </view>
+
+      <view class = "inputContainer">
+        <text class='sectionTitle'>地址2</text>
+          <input class='input'  placeholder="请按需填写此栏" value="{{address2}}"placeholder-class='placeholder' bindinput="addAddress2" ></input>
+      </view>
+
+      <view class = "inputContainer">
+      <picker bindchange="bindProgramPickerChange" style="font-size: 30rpx" value="{{index1}}" range="{{array1}}">
+        <view class="picker">
+          <text style="margin-right: 40rpx; font-size: 29rpx">学校项目 </text>
+          {{array1[index1]}}
+        </view>
+      </picker>
+    <text class='sectionSymbol'>></text>
+    </view>
+
+      <view class = "inputContainer">
+        <picker bindchange="bindDegreePickerChange" style="font-size: 30rpx"  value="{{index2}}" range="{{array2}}">
+            <view class="picker">
+              <text style="margin-right: 40rpx; font-size: 29rpx">学历 </text>
+              {{array2[index2]}}
+            </view>
+         </picker>
+      <text class='sectionSymbol'>></text>
+      </view>
+
+      <view class = "inputContainer">
+          <text class='sectionTitle'>学生ID</text>
+          <input class='input'  placeholder="请输入UCSC学生ID" value="{{studentId}}" placeholder-class='placeholder' bindinput="addStudentId" ></input>
+        </view>
+      <view class = "inputContainer">
+        <text class='sectionTitleDate'>毕业日期</text>
+          <input class='input'  placeholder=" 毕业日期MM/DD/YYYY"value="{{gradDate}}" placeholder-class='placeholder' bindinput="addGradDate" ></input>
+      </view>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>专业1</text>
+          <input class='input'  placeholder="请输入第一专业" value="{{major1}}" placeholder-class='placeholder' bindinput="addMajor1" ></input>
+      </view>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>专业2</text>
+          <input class='input'  placeholder="请按需填写此栏" value="{{major2}}"placeholder-class='placeholder' bindinput="addMajor2" ></input>
+      </view>
+    </view> 
+  </scroll-view>
+  <button class='connect' bindtap="connect"  style="width: 680rpx; height:110rpx;">
+  <text id='connectText'>提交信息并绑定</text>
+  </button>
+</view>
+
+ 
+  

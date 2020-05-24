@@ -12,7 +12,7 @@ Page({
     list: [{
       "pagePath": "event",
       "text": "活动",
-      "iconPath": "/image/test.jpg",
+      "iconPath": "/image/home.png",
       "selectedIconPath": "/image/test.jpg"
     },
     {
@@ -23,7 +23,7 @@ Page({
     },
     {
       "text": "我的",
-      "iconPath": "/image/test.jpg",
+      "iconPath": "/image/people.png",
       "selectedIconPath": "/image/test.jpg"
     }],
     topEvent: [{
@@ -41,16 +41,26 @@ Page({
   },
 
   jumpDetail:function(e){
-    console.log(e)
     wx.navigateTo({
       // url: "/pages/event/eventDetail/eventDetail?index=" + e.currentTarget.dataset.index,
       url: "/pages/event/eventDetail/eventDetail?index=" + e.currentTarget.id,
       success: function(res){
-        console.log('success')
+        // console.log('success' + e)
       },
       fail: function(res){
-        console.log('fail')
-        console.log(res)
+        console.log('navigate to eventDetail fail' + res)
+      }
+    })
+  },
+
+  search(e){
+    wx.navigateTo({
+      url: "/pages/search/search",
+      success: function(res){
+        // console.log('success')
+      },
+      fail: function(res){
+        console.log('navigate to search page fail')
       }
     })
   },
@@ -101,7 +111,7 @@ Page({
         // console.log(that.data)
       },
       fail: function(res) {
-        console.log("top_event data fail", res)
+        console.log("top_event getting all events fail", res)
       }
     }),
     EVENT.where({
@@ -118,7 +128,7 @@ Page({
         // console.log(that.data)
       },
       fail: function(res) {
-        console.log("top_event data fail", res)
+        console.log("top_event getting alumni events fail", res)
       }
     }),
     EVENT.where({
@@ -134,7 +144,7 @@ Page({
         // console.log(that.data)
       },
       fail: function(res) {
-        console.log("event data(all) fail", res)
+        console.log("bottom event getting all events fail", res)
       }
     }),
     EVENT.where({
@@ -150,7 +160,7 @@ Page({
         // console.log(that.data)
       },
       fail: function(res) {
-        console.log("event data(alumni) fail", res)
+        console.log("bottom event getting alumni events fail", res)
       }
     })
   },
@@ -272,10 +282,13 @@ Page({
     if (e.detail.index == 1) {
       // TODO, should use switchTab to a tabbar page.
       wx.redirectTo({
-        url: "/pages/service/service"
+        // url: "/pages/service/service"
       })
     } else if (e.detail.index == 2) {
       // TODO
+      wx.redirectTo({
+        // url: "/pages/PersonalInfo/PersonalInfo"
+      })
     }
   },
 })

@@ -205,34 +205,49 @@
   color: grey;
 }
 .text1{
-  /* margin-left: 20rpx;
   margin-top: 5rpx;
-  position: absolute; */
+  margin-left: 30rpx;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text2{
+  margin-top: 5rpx;
+  margin-left: 40rpx;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.tag2{
-  border: 1rpx rgb(220, 219, 219) solid;
-  height: 60rpx;
-  width: 150rpx;
-}
 
-.tag3{
-  border: 1rpx rgb(220, 219, 219) solid;
+.tag2 button:not([size='mini']){
+  width: 170rpx;
   height: 60rpx;
-  width: 150rpx;
-}
-
-.tag4{
-  border: 1rpx rgb(220, 219, 219) solid;
+  border: none;
+  font-size: 30rpx;
+  color: grey;
+  border: 1rpx rgb(169, 167, 167) solid;
+} 
+.tag3 button:not([size='mini']){
+  width: 170rpx;
   height: 60rpx;
-  width: 150rpx;
-}
-
-.tag5{
-  border: 1rpx rgb(220, 219, 219) solid;
+  border: none;
+  font-size: 30rpx;
+  border: 1rpx rgb(169, 167, 167) solid;
+} 
+.tag4 button:not([size='mini']){
+  width: 170rpx;
   height: 60rpx;
-  width: 150rpx;
-}
+  border: none;
+  font-size: 30rpx;
+  border: 1rpx rgb(169, 167, 167) solid;
+} 
+.tag5 button:not([size='mini']){
+  width: 170rpx;
+  height: 60rpx;
+  border: none;
+  font-size: 30rpx;
+  border: 1rpx rgb(169, 167, 167) solid;
+} 

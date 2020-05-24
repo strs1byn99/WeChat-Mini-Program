@@ -2,7 +2,7 @@
 <view class="container">
   <view class="header">
     <text id="page-title">校友会活动</text>
-    <image class="searchImage" src="/image/search.png"></image>
+    <image class="searchImage" src="/image/search.png" bindtap="search"></image>
     <!-- <icon id="search" type="search" size="60rpx" color="#000000" ></icon> -->
   </view>
 
@@ -32,7 +32,7 @@
           </view>
         </view >
         
-        <view class="caseList" wx:for='{{allEvent}}'>
+        <view class="caseList" bindtap="jumpDetail" id='{{item.index}}' wx:for='{{allEvent}}'>
           <view class="caseHeader">
             <text class="case-title">{{item.header}}</text>
             <view class="case-subHeader">
@@ -42,7 +42,7 @@
           <view class="IconImage">
             <image src='/image/13.jpg'></image>
           </view>
-          <view class="case-descriptions" bindtap="jumpDetail" id='{{item.index}}'>
+          <view class="case-descriptions">
             <text class="descriptionText">{{item.descriptionText1}}</text>
             <text class="descriptionText">{{item.descriptionText2}}</text>
           </view>
@@ -63,7 +63,7 @@
           </view>
         </view >
         
-        <view class="caseList" wx:for='{{alumniEvent}}'>
+        <view class="caseList" bindtap="jumpDetail" id='{{item.index}}' wx:for='{{alumniEvent}}'>
           <view class="caseHeader">
             <text class="case-title">{{item.header}}</text>
             <view class="case-subHeader">
@@ -73,7 +73,7 @@
           <view class="IconImage">
             <image src='/image/13.jpg'></image>
           </view>
-          <view class="case-descriptions" bindtap="jumpDetail" id='{{item.index}}'>
+          <view class="case-descriptions">
             <!-- <text class="descriptionText">{{item.descriptionText1}}</text>
             <text class="descriptionText">{{item.descriptionText2}}</text> -->
             <text class="descriptionText">{{item.descriptionText1}}</text>
