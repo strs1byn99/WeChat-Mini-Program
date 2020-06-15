@@ -1,8 +1,8 @@
 const app = getApp()
 const DB = wx.cloud.database()
-const searchResult = DB.collection("searchResult")
 const EVT_DETL = DB.collection("event_details")
-
+const CAREER = DB.collection("career")
+const ITEMS = DB.collection("items")
 
 var arrayHeight = 0;
 Page({

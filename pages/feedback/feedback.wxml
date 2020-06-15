@@ -1,0 +1,13 @@
+<!--pages/feedback/feedback.wxml-->
+
+<view>
+  <view class="fb-box">
+    <textarea class="fb-input" placeholder-class="place-holder" placeholder="请留下您的宝贵意见或建议，我们将努力改进（反馈内容不少于10个字）" type="text" bindinput="bind_fb_input" value="{{fb_input}}"/>
+  </view>
+  <view class="wechat-box">
+    <input class="wechat-input" placeholder="请留下您的微信号，以便我们回复您" type="text" bindinput="bind_wc_input" value="{{wc_input}}"/>
+  </view>
+  <view class="button" bindtap="submit">
+    <view class="submit">提交</view>
+  </view>
+</view>

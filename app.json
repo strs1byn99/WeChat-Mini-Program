@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/search/search",
+    "pages/feedback/feedback",
     "pages/event/event",
     "pages/personalInfo/contact/contact",
     "pages/personalInfo/myInfo/myInfo",
     "pages/event/eventDetail/eventDetail",
-    "pages/search/search",
     "pages/service/service"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",
