@@ -1,0 +1,24 @@
+<!--pages/service/careerDetail/careerDetail.wxml-->
+<view class="container">
+  <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+  <view class="header-back"></view>
+  <view class="header">
+    <text class="title">{{career.name}}</text>
+    <text class="salary">{{career.salary}}</text>
+    <text class="subtitle">{{career.location}}｜{{career.category}}</text>
+  </view>
+  <text class="req-title">招聘要求</text>
+  <view class="req">
+    <block wx:for="{{career.keywords}}" wx:for-item="keyword">
+      <text>{{keyword}}</text>
+    </block>
+  </view>
+  <text class="wf-title">工作福利</text>
+  <view class="welfare">
+    <block wx:for="{{career.welfare}}" wx:for-item="keyword">
+      <text>{{keyword}}</text>
+    </block>
+  </view>
+  <text class="detail-title">工作内容</text>
+  <text class="detail">{{career.detail}}</text>
+</view>

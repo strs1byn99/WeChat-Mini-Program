@@ -1,0 +1,16 @@
+<!--pages/service/orderDetail/orderDetail.wxml-->
+<view class="container">
+  <view class="titleBar">
+    <text>{{item.name}}</text>
+    <text class="price">{{item.price}}元</text>
+    <view class="divLine"></view>
+    <view class="buyButton" bindtap="toBuy">
+      <text>购买</text>
+    </view>
+  </view>
+  <view class="detail">
+    <text>商品详情</text>
+    <image src="{{item.img}}" mode="widthFix"></image>
+    <text class="description">{{item.description}}</text>
+  </view>
+</view>

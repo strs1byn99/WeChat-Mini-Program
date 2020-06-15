@@ -30,17 +30,17 @@
           </swiper-item>
         </swiper>
         <view class="list">
-          <block wx:for="{{dataList.mock.order.items}}" wx:for-item="item">
+          <view wx:for="{{items}}" wx:for-item="item" bindtap="toOrder" id="{{item._id}}">
             <view class="div-line"></view>
             <view class="list-el">
-              <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+              <image src="{{item.img}}" mode="aspectFill"></image>
               <view class="list-el-text">
-                <text class="item-title">{{item.title}}</text>
+                <text class="item-title">{{item.name}}</text>
                 <text class="item-description">{{item.description}}</text>
                 <text class="item-price">¥{{item.price}}</text>
               </view>
             </view>
-          </block>
+          </view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -55,17 +55,18 @@
           </swiper-item>
         </swiper>
         <view class="list">
-          <block wx:for="{{dataList.mock.career.items}}" wx:for-item="item">
+          <view wx:for="{{career}}" wx:for-item="item" bindtap="toCareer" id="{{item._id}}">
             <view class="div-line"></view>
             <view class="list-el">
               <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
               <view class="list-el-text">
-                <text class="item-title">{{item.title}}</text>
+                <text class="item-title">{{item.name}}</text>
                 <text class="item-description">{{item.type}}</text>
-                <text class="item-price">{{item.status}}</text>
+                <text class="item-price" wx:if="{{item.valid}}">招聘中</text>
+                <text class="item-price inactive" wx:if="{{!item.valid}}">招聘结束</text>
               </view>
             </view>
-          </block>
+          </view>
         </view>
       </scroll-view>
     </swiper-item>
@@ -80,14 +81,15 @@
           </swiper-item>
         </swiper>
         <view class="list">
-          <block wx:for="{{dataList.mock.welfare.items}}" wx:for-item="item">
+          <block wx:for="{{welfare}}" wx:for-item="item">
             <view class="div-line"></view>
             <view class="list-el">
-              <image src="/image/animalcrossing.jpg" mode="aspectFill"></image>
+              <image src="{{item.img}}" mode="aspectFill"></image>
               <view class="list-el-text">
-                <text class="item-title">{{item.title}}</text>
+                <text class="item-title">{{item.name}}</text>
                 <text class="item-description">{{item.description}}</text>
-                <text class="item-price">{{item.status}}</text>
+                <text class="item-price" wx:if="{{item.valid}}">开放中</text>
+                <text class="item-price inactive" wx:if="{{!item.valid}}">现已结束</text>
               </view>
             </view>
           </block>

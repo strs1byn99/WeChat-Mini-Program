@@ -1,5 +1,9 @@
 // pages/service/service.wxml.js
 import * as mock from './mock.js'
+const DB = wx.cloud.database({throwOnNotFound: false})
+const ITEMS = DB.collection("items")
+const CAREER = DB.collection("career")
+const WELFARE = DB.collection("welfare")
 Page({
 
   /**
@@ -83,14 +87,58 @@ Page({
       url: '/pages/search/search',
     })
   },
-
+  toOrder(e) {
+    wx.navigateTo({
+      url: 'orderDetail/orderDetail?item_id?' + e.currentTarget.id,
+      fail: function(res){
+        console.log('navigate to order fail' + res)
+        wx.showToast({
+          title: '无法进入页面',
+          icon: 'none'
+        })
+      }
+    })
+  },
+  toCareer(e) {
+    wx.navigateTo({
+      url: 'careerDetail/careerDetail?item_id?' + e.currentTarget.id,
+      fail: function(res){
+        console.log('navigate to career fail' + res)
+        wx.showToast({
+          title: '无法进入页面',
+          icon: 'none'
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(mock)
-    this.setData({
-      'dataList': mock
+    var that = this
+    ITEMS.get({
+      success: (res) => {
+        console.log('items', res)
+        that.setData({
+          'items': res.data
+        })
+      }
+    })
+    CAREER.get({
+      success: (res) => {
+        console.log('career', res)
+        that.setData({
+          'career': res.data
+        })
+      }
+    })
+    WELFARE.get({
+      success: (res) => {
+        console.log('welfare',res)
+        that.setData({
+          'welfare': res.data
+        })
+      }
     })
     console.log(this.data)
   },
