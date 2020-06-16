@@ -1,0 +1,33 @@
+<!--pages/service/placeOrder/placeOrder.wxml-->
+<view class='container'>
+    <form class ='inputContent' catchsubmit="formSubmit">
+      <view class = "inputContainer">
+        <text class='sectionTitle'>姓名</text>
+        <input name='name' class='input' placeholder="请输入真实姓名" value="{{name}}" placeholder-class='placeholder' bindinput="changeName"></input>
+      </view>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>联系电话</text>
+        <input name='phone' class='input' placeholder="请输入手机号码" value="{{phone}}" placeholder-class='placeholder' bindinput="changePhone"></input>
+      </view>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>联系邮箱</text>
+        <input name='name' class='input'  placeholder="请输入邮箱" value="{{email}}" placeholder-class='placeholder' bindinput="changeEmail"></input>
+      </view>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>邮寄地址</text>
+        <input name='address' class='input'  placeholder="请输入完整地址" value="{{address}}" placeholder-class='placeholder' bindinput="changeAddress"></input>
+      </view>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>购买件数</text>
+        <input name='quantity' class='input'  placeholder="请输入数量" type="number" value="{{quantity}}" placeholder-class='placeholder' bindinput="changeQuantity"></input>
+      </view>
+      <view class = "inputContainer">
+        <text class='sectionTitle'>额外备注</text>
+        <input name='extra' class='input'  placeholder="如有备注可在此填写" value="{{extra}}" placeholder-class='placeholder' bindinput="changeExtra"></input>
+      </view>   
+      
+      <button class='connect' formType="submit">
+        <text id='connectText'>提交</text>
+      </button> 
+    </form> 
+</view>
