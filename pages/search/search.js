@@ -5,6 +5,7 @@ const CAREER = DB.collection("career")
 const ITEMS = DB.collection("items")
 
 var arrayHeight = 0;
+var big_thing = []; var hotlist = [];
 Page({
   /**
    * Page initial data
@@ -23,7 +24,6 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.getHotList(); // Get hot articles
     this.getArticles(); // Get all articles
   },
 
@@ -76,26 +76,43 @@ Page({
 
   },
 
-  getHotList: function () {
-    EVT_DETL.orderBy('hits', 'desc').get().then(res => {  // 应取所有数据中的点击率最高的文章 limit()
-      var hotlist = [];
-      for (var i = 0; i < 5; i++) {
-        hotlist.push(res.data[i]);
-      }
-      this.setData({
-        hotList: hotlist
-      });
-      console.log(this.data.hotList);
-    });
-  },
+  getArticles: function () {  // 获取所有文章: event/career/items
+    EVT_DETL.orderBy('hits', 'desc').get().then(res => {  
+      res.data.forEach(function(x) {
+        big_thing.push({'title': x.title, 'subTitle': x.subTitle, 'hits': x.hits, 'index': x.index, 'type': 'event'});
+      })
+      CAREER.orderBy('popularity', 'desc').get().then(res => {
+        res.data.forEach(function(x) {
+          big_thing.push({'title': x.name, 'subTitle': x.type, 'hits': x.popularity, 'index': x._id, 'type': 'career'});
+        })
+        ITEMS.orderBy('popularity', 'desc').get().then(res => {
+          res.data.forEach(function(x) {
+            big_thing.push({'title': x.name, 'subTitle': '$'+x.price, 'hits': x.popularity, 'index': x._id, 'type': 'items'});
+          })
+          console.log(big_thing);
+          // Bubble Sort the Source
+          var length = big_thing.length;
+          for (var i = length-1; i >= 0; i--){
+            for(var j = 1; j <= i; j++){
+              if(big_thing[j-1].hits < big_thing[j].hits) {
+                  var aux = big_thing[j-1];
+                  big_thing[j-1] = big_thing[j];
+                  big_thing[j] = aux;
+              }
+            }
+          }
+          console.log(big_thing);
+          for (var i = 0; i < 5; i++) {
+            hotlist.push(big_thing[i]);
+          }   
+          this.setData({
+            Source: big_thing,
+            hotList: hotlist
+          })
+        }); // items
+      }); // career
+    }); // event
 
-  getArticles: function () {
-    EVT_DETL.orderBy('hits', 'desc').get().then(res => {  // 获取所有文章/Event
-      this.setData({
-        Source: res.data
-      });
-      console.log(this.data.Source);
-    });
   },
 
   bindinput: function (e) {
@@ -110,10 +127,10 @@ Page({
       this.data.Source.forEach(function (x) {
         var xtitle = x.title;
         var xlow = xtitle.toLowerCase();
-        if (xlow.indexOf(prefix.toLowerCase()) != -1) {
-          console.log(x.title);
-          sources.push(x.title);
-        }
+          if (xlow.indexOf(prefix.toLowerCase()) != -1) {
+            console.log(x.title);
+            sources.push(x.title);
+          }
       });
     }
     if (sources.length != 0) {
@@ -190,15 +207,51 @@ Page({
   },
 
   jumpDetail: function (e) {
-    console.log(e);
-    wx.navigateTo({
-      url: "/pages/event/eventDetail/eventDetail?index=" + e.currentTarget.id,
-      success: function (res) {
-        console.log('success');
-      },
-      fail: function (res) {
-        console.log('fail');
-      }
-    });
+    console.info(e);
+    var type = e.currentTarget.dataset.type;
+    if (type === "career") { // type: career
+      wx.navigateTo({
+        url: '/pages/service/careerDetail/careerDetail?item_id?' + e.currentTarget.id,
+        success: function (res) {
+          console.log('success');
+        },
+        fail: function (res) {
+          console.log('navigate to order fail' + res)
+          wx.showToast({
+            title: '无法进入页面',
+            icon: 'none'
+          });
+        }
+      });
+    } else if (type === "items") { // type: items
+      wx.navigateTo({
+        url: "/pages/service/orderDetail/orderDetail?item_id?" + e.currentTarget.id,
+        success: function (res) {
+          console.log('success');
+        },
+        fail: function (res) {
+          console.log('navigate to order fail' + res)
+          wx.showToast({
+            title: '无法进入页面',
+            icon: 'none'
+          });
+        }
+      });
+    } else if (type === "event") { // type: event
+      wx.navigateTo({
+        url: "/pages/event/eventDetail/eventDetail?index=" + e.currentTarget.id,
+        success: function (res) {
+          console.log('success');
+        },
+        fail: function (res) {
+          console.log('fail');
+          wx.showToast({
+            title: '无法进入页面',
+            icon: 'none'
+          });
+        }
+      });
+    }
+    
   }
 })

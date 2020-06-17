@@ -1,13 +1,12 @@
 {
   "pages": [
-    "pages/service/service",
     "pages/search/search",
+    "pages/service/service",
     "pages/feedback/feedback",
     "pages/event/event",
     "pages/service/placeOrder/placeOrder",
     "pages/service/orderDetail/orderDetail",
     "pages/service/careerDetail/careerDetail",
-    "pages/personalInfo/contact/contact",
     "pages/personalInfo/myInfo/myInfo"
   ],
   "window": {

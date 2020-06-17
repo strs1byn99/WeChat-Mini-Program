@@ -26,7 +26,7 @@
       <view class="hit-title"> 热门搜索 </view>  
       <view class="hit-item-area-box">
         <view class="hit-item-area" wx:for="{{hotList}}">
-          <view class="hit-item" bindtap="jumpDetail" id="{{item.index}}">
+          <view class="hit-item" bindtap="jumpDetail" id="{{item.index}}" data-type="{{item.type}}">
             {{item.title}}
           </view> 
         </view>    
@@ -42,7 +42,7 @@
       <view class="item-area-box">
 
         <!-- 每一个结果 横向排布-->
-          <view class="item-box" wx:for="{{sourcesDetail}}" id="{{item.index}}" bindtap="jumpDetail">
+          <view class="item-box" wx:for="{{sourcesDetail}}" id="{{item.index}}" data-type="{{item.type}}" bindtap="jumpDetail">
             <!-- image/des/detail 平行三列 左中右-->
             <image src="../../image/test.jpg" class="item-image"></image>
             <view class="item-des">
