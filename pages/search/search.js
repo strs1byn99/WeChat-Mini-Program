@@ -5,7 +5,6 @@ const CAREER = DB.collection("career")
 const ITEMS = DB.collection("items")
 
 var arrayHeight = 0;
-var big_thing = []; var hotlist = [];
 Page({
   /**
    * Page initial data
@@ -24,7 +23,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-    this.getArticles(); // Get all articles
+    // this.getArticles(); // Get all articles
   },
 
   /**
@@ -38,7 +37,10 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    this.setData({
+      Source: []
+    })
+    this.getArticles();
   },
 
   /**
@@ -77,22 +79,24 @@ Page({
   },
 
   getArticles: function () {  // 获取所有文章: event/career/items
+    var big_thing = [], hotlist = [];
     EVT_DETL.orderBy('hits', 'desc').get().then(res => {  
       res.data.forEach(function(x) {
-        big_thing.push({'title': x.title, 'subTitle': x.subTitle, 'hits': x.hits, 'index': x.index, 'type': 'event'});
+        var icon = (x.icon.length == 0)? "../../image/test.jpg" : x.icon; // if there's no image
+        big_thing.push({'title': x.title, 'subTitle': x.subTitle, 'hits': x.hits, 'index': x.index, 'icon': icon, 'type': 'event'});
       })
       CAREER.orderBy('popularity', 'desc').get().then(res => {
         res.data.forEach(function(x) {
-          big_thing.push({'title': x.name, 'subTitle': x.type, 'hits': x.popularity, 'index': x._id, 'type': 'career'});
+          big_thing.push({'title': x.name, 'subTitle': x.type, 'hits': x.popularity, 'index': x._id, 'icon': '../../image/test.jpg', 'type': 'career'});
         })
         ITEMS.orderBy('popularity', 'desc').get().then(res => {
           res.data.forEach(function(x) {
-            big_thing.push({'title': x.name, 'subTitle': '$'+x.price, 'hits': x.popularity, 'index': x._id, 'type': 'items'});
+            var icon = (x.img.length == 0)? "../../image/test.jpg" : x.img; // if there's no image
+            big_thing.push({'title': x.name, 'subTitle': '$'+x.price, 'hits': x.popularity, 'index': x._id, 'icon': icon, 'type': 'items'});
           })
           console.log(big_thing);
           // Bubble Sort the Source
-          var length = big_thing.length;
-          for (var i = length-1; i >= 0; i--){
+          for (var i = big_thing.length-1; i >= 0; i--){
             for(var j = 1; j <= i; j++){
               if(big_thing[j-1].hits < big_thing[j].hits) {
                   var aux = big_thing[j-1];
@@ -157,22 +161,36 @@ Page({
   },
 
   search: function (inputValue) {
-    var sources = [];  // 被搜索词条的匹配结果的所有title
+    var sources = [];  // 被搜索词条的匹配结果
     if (inputValue != "") {
-      // 搜索算法
-      // 获得所有相关词条的title 以hits排序
+      // 搜索算法：获得所有相关词条的title 以匹配字符数量 hits排序 其中匹配字符数量>hits优先级
       this.data.Source.forEach(function (x) {
         var reg = new RegExp(`[${inputValue}]`, 'gi');
         var array = x.title.match(reg);
         if (array != null) {
-          sources.push(x);
+          sources.push({'data': x, 'len': array.length});
         }
         console.log(array);
       });
+      // Bubble Sort the sources
+      for (var i = sources.length-1; i >= 0; i--){
+        for(var j = 1; j <= i; j++){
+          if(sources[j-1].len < sources[j].len) {
+              var aux = sources[j-1];
+              sources[j-1] = sources[j];
+              sources[j] = aux;
+          }
+        }
+      }
       console.log(sources);
-      this.setData({
-        sourcesDetail: sources
+      var sourcesDetail = [];
+      sources.forEach(function (x) {
+        sourcesDetail.push(x.data);
       });
+      this.setData({
+        sourcesDetail: sourcesDetail
+      });
+      console.log(this.data.sourcesDetail);
       if (sources.length == 0) {
         this.setData({showHotList: 2});
       }

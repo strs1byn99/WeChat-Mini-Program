@@ -44,12 +44,14 @@
         <!-- 每一个结果 横向排布-->
           <view class="item-box" wx:for="{{sourcesDetail}}" id="{{item.index}}" data-type="{{item.type}}" bindtap="jumpDetail">
             <!-- image/des/detail 平行三列 左中右-->
-            <image src="../../image/test.jpg" class="item-image"></image>
+            <image src="{{item.icon}}" class="item-image" mode="aspectFit"></image>
             <view class="item-des">
               <view class="item-title">{{item.title}}</view>
               <view class="item-subtitle">{{item.subTitle}}</view>
             </view> 
-            <view class="item-detail">活动详情</view>
+            <view wx:if="{{item.type === 'event'}}" class="item-detail">活动详情</view>
+            <view wx:elif="{{item.type === 'career'}}" class="item-detail">求职详情</view>
+            <view wx:elif="{{item.type === 'items'}}" class="item-detail">订购详情</view>
           </view>
 
       </view>
